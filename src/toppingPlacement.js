@@ -1,16 +1,16 @@
-const canvas = document.getElementById('demo');
+const canvas = document.getElementById('pizzaCanvas');
 const ctx = canvas.getContext('2d');
-const pizzaImg = "images/pizza_canvas.png";
-const pepperoniImg = "images/pepperoni_smal.png";
-const hamImg = "images/ham_small.png";
-const oliveImg = "images/olives_small.png";
-const sausageImg = "images/sausage_small.png";
-const baconImg = "images/bacon_small.png";
-const bellPeppersImg = "images/bell_peppers_small.png";
-const cheeseImg = "images/cheese_small.png";
-const anchovyImg = "images/anchovy_small.png";
-const jalapenoImg = "images/jalepenos_small.png";
-const pineappleImg = "images/pineapple_small.png";
+const pizzaImg = "../images/pizza_canvas.png";
+const pepperoniImg = "../images/pepperoni.png";
+const hamImg = "../images/ham.png";
+const oliveImg = "../images/olives.png";
+const sausageImg = "../images/sausage.png";
+const baconImg = "../images/bacon.png";
+const bellPeppersImg = "../images/bell_peppers.png";
+const cheeseImg = "../images/cheese.png";
+const anchovyImg = "../images/anchovy.png";
+const jalapenoImg = "../images/jalepenos.png";
+const pineappleImg = "../images/pineapple.png";
 
 const drawPepperoni = (image) => {
     ctx.drawImage(image,170,80);
@@ -123,6 +123,7 @@ const drawJalapeno = (image) => {
 }
 
 const drawPizzaCanvas = (image) => {
+    console.log("Pizza's been drawn")
     ctx.drawImage(image, 0, 0);
 }
 
