@@ -11,16 +11,20 @@ const cheeseImg = "../images/cheese.png";
 const anchovyImg = "../images/anchovy.png";
 const jalapenoImg = "../images/jalepenos.png";
 const pineappleImg = "../images/pineapple.png";
+const pepLeft = "../images/pepperoni_left.png";
+const pepRight = "../images/pepperoni_right.png";
 
-const drawPepperoni = (image) => {
-    ctx.drawImage(image,170,80);
-    ctx.drawImage(image,100,160);
-    ctx.drawImage(image,160,270);
-    ctx.drawImage(image,110,400);
-    ctx.drawImage(image,350,80);
-    ctx.drawImage(image,420,160);
-    ctx.drawImage(image,340,270);
-    ctx.drawImage(image,420,400);
+const drawPepperoni = (images) => {
+    // ctx.drawImage(image,170,80);
+    // ctx.drawImage(image,100,160);
+    // ctx.drawImage(image,160,270);
+    // ctx.drawImage(image,110,400);
+    // ctx.drawImage(image,350,80);
+    // ctx.drawImage(image,420,160);
+    // ctx.drawImage(image,340,270);
+    // ctx.drawImage(image,420,400);
+    ctx.drawImage(images.pepLeft, 0, 0);
+    ctx.drawImage(images.pepRight, 0, 0);
 }
 
 const drawHam = (image) => {
@@ -123,7 +127,8 @@ const drawJalapeno = (image) => {
 }
 
 const drawPizzaCanvas = (image) => {
-    console.log("Pizza's been drawn")
+    ctx.imageSmoothingEnabled = false;
+    ctx.scale(0.5,0.5)
     ctx.drawImage(image, 0, 0);
 }
 
@@ -156,12 +161,14 @@ var sources = {
     bellPepper: bellPeppersImg,
     cheese: cheeseImg,
     anchovies: anchovyImg,
-    jalapeno: jalapenoImg
+    jalapeno: jalapenoImg,
+    pepLeft: pepLeft,
+    pepRight: pepRight
 };
 
 loadImages(sources, images => {
     drawPizzaCanvas(images.pizza);
-    // drawPepperoni(images.pepperoni);
+    drawPepperoni(images);
     // drawHam(images.ham);
     // drawOlive(images.olives);
     // drawPineapple(images.pineapple);
