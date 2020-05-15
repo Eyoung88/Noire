@@ -11,7 +11,57 @@
 <body>
     <div id="pizza" class="row">
         <div id="toppings_row">
-            <div id="pepperoni" class="toppings">Pepperoni</div>
+            <div id="pepperoni" class="toppings">Pepperoni
+                <div class="toppings_box">
+                    <form class="pizza_topping_form">
+                        <!-- <div class="topping_amount">
+                            <label class="container">Extra
+                                <input type="radio" name="topping_amount" value="Extra">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Normal
+                                <input type="radio" name="topping_amount" value="Normal">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">None
+                                <input type="radio" name="topping_amount" value="None">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div> -->
+                        <div class="portion_of_pizza">
+                            <label>
+                                <input type="radio" name="test" value="left">
+                                <img class="img_resize" src="../images/PizzaPortionLeft.png">
+                            </label>
+            
+                            <label>
+                                <input type="radio" name="test" value="full" checked>
+                                <img class="img_resize" src="../images/PizzaPortionFull.png">
+                            </label>
+            
+                            <label>
+                                <input type="radio" name="test" value="right">
+                                <img class="img_resize" src="../images/PizzaPortionRight.png">
+                            </label>
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+                <!-- <label>
+                    <input type="radio" name="test" value="left">
+                    <img class="img_resize" src="../images/PizzaPortionLeft.png">
+                </label>
+
+                <label>
+                    <input type="radio" name="test" value="full" checked>
+                    <img class="img_resize" src="../images/PizzaPortionFull.png">
+                </label>
+
+                <label>
+                    <input type="radio" name="test" value="right">
+                    <img class="img_resize" src="../images/PizzaPortionRight.png">
+                </label> -->
+            </div>
             <div id="ham" class="toppings">Ham</div>
             <div id="olives" class="toppings">Olives</div>
             <div id="pineapple" class="toppings">Pineapple</div>
@@ -22,7 +72,9 @@
             <div id="anchovies" class="toppings">Anchovies</div>
             <div id="jalapenos" class="toppings">Jalapenos</div>
         </div>
-        <div id="pizza_canvas">Canvas</div>
+        <div id="pizza_canvas">
+            <canvas id="myCanvas" width="620" height="624"></canvas>
+        </div>
     </div>
     <script src="../src/framework_javascript.js"></script>
 </body>
