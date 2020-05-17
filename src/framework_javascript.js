@@ -35,5 +35,6 @@ Array.from(toppings).forEach(function (element) {
         <div>
             <p id="order">Hello</p>
         </div>
+        <div id='image_holder'></div>
 </div>`;
 });
