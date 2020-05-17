@@ -1,4 +1,21 @@
+const pizza = document.getElementById("pizza");
 const toppings = document.getElementsByClassName("toppings");
+
+pizza.innerHTML = `<div id="toppings_row">
+<div id="pepperoni" class="toppings">Pepperoni</div>
+<div id="ham" class="toppings">Ham</div>
+<div id="olives" class="toppings">Olives</div>
+<div id="pineapple" class="toppings">Pineapple</div>
+<div id="sausage" class="toppings">Sausage</div>
+<div id="bacon" class="toppings">Bacon</div>
+<div id="bell_peppers" class="toppings">Bell Peppers</div>
+<div id="cheese" class="toppings">Cheese</div>
+<div id="anchovies" class="toppings">Anchovies</div>
+<div id="jalapenos" class="toppings">Jalapenos</div>
+</div>
+<div id="pizza_canvas">
+<canvas id="myCanvas" width="620" height="624"></canvas>
+</div>`;
 
 Array.from(toppings).forEach(function (element) {
     element.innerHTML += `<div class="toppings_box">
