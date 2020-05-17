@@ -31,6 +31,7 @@ Array.from(toppings).forEach(function (element) {
             <label class="container">
                 <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="None">
                 <img class="topping_resize" src="../images/None.png">
+
             </label>
         </div>
         <div class="portion_of_pizza">
