@@ -50,5 +50,47 @@ export let data = {
             "name": "sausage",
             "file_prefix": "sausage"
         }
+    ],
+    prebuilt1: [
+        { 'large': "$15.00" },
+        {
+            "name": "crust",
+            "file_prefix": "pizza_canvas"
+        },
+        {
+            "name": "cheese",
+            "file_prefix": "cheese"
+        },
+        {
+            "name": "bell_peppers",
+            "file_prefix": "bell_peppers"
+        },
+        {
+            "name": "olives",
+            "file_prefix": "olives"
+        }
+    ],
+    prebuilt2: [
+        { 'small': '$8.00' },
+        {
+            "name": "crust",
+            "file_prefix": "pizza_canvas"
+        },
+        {
+            "name": "cheese",
+            "file_prefix": "cheese"
+        },
+        {
+            "name": "ham",
+            "file_prefix": "ham"
+        },
+        {
+            "name": "jalepenos",
+            "file_prefix": "jalepenos"
+        },
+        {
+            "name": "anchovy",
+            "file_prefix": "anchovy"
+        }
     ]
 }
