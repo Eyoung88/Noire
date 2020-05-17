@@ -1,9 +1,9 @@
-
+import './style.scss';
 import { toppings } from './framework_javascript';
 import { isChecked } from './prices';
 import {data} from './data';
 
-document.getElementById('pizza').innerHTML = pizza_app;
+document.getElementById('pizza').innerHTML = toppings;
 
 const image_holder = document.getElementById('image_holder');
 
