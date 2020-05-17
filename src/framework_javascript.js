@@ -2,6 +2,7 @@ const toppings = document.getElementsByClassName("toppings");
 
 Array.from(toppings).forEach(function (element) {
     element.innerHTML += `<div class="toppings_box">
+    <input class="test" type="checkbox">
         <div class="topping_amount">
             <label class="container">
                 <input class="img_radio" type="radio" name="topping_amount" value="Extra">
@@ -32,4 +33,5 @@ Array.from(toppings).forEach(function (element) {
                 <img class="img_resize" src="../images/PizzaPortionRight.png">
             </label>
         </div>
+
 </div>`;});

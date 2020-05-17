@@ -17,6 +17,12 @@ html {
   justify-content: center;
 }
 
+.test {
+  background-color: springgreen;
+  width: 30px;
+  height: 30px;
+}
+
 #pizza {
   display: flex;
   flex-direction: row;
@@ -29,7 +35,7 @@ html {
 #toppings_row {
   width: 50%;
   margin: auto;
-  /* text-align: center; */
+  text-align: center;
 }
 
 .toppings {
