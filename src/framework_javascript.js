@@ -14,40 +14,58 @@ pizza.innerHTML = `<div id="toppings_row">
 <div id="jalapenos" class="toppings">Jalapenos</div>
 </div>
 <div id="pizza_canvas">
-<canvas id="myCanvas" width="620" height="624"></canvas>
+<canvas id="pizza_view" width="270" height="270"></canvas>
 </div>`;
 
 Array.from(toppings).forEach(function (element) {
     element.innerHTML += `<div class="toppings_box">
         <div class="topping_amount">
             <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Extra">
+                <input class="img_radio inputBtn" type="radio" name="topping_amount_${element.id}" value="Extra">
                 <img class="topping_resize" src="../images/Extra.png">
             </label>
             <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Normal" checked>
+                <input class="img_radio inputBtn" type="radio" name="topping_amount_${element.id}" value="Normal" checked>
                 <img class="topping_resize" src="../images/Normal.png">
             </label>
             <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="None">
+                <input class="img_radio inputBtn" type="radio" name="topping_amount_${element.id}" value="None">
                 <img class="topping_resize" src="../images/None.png">
             </label>
         </div>
         <div class="portion_of_pizza">
             <label>
-                <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="left">
+                <input class="img_radio inputBtn" type="radio" name="pizza_portion_${element.id}" value="left">
                 <img class="img_resize" src="../images/PizzaPortionLeft.png">
             </label>
 
             <label>
-                <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="full" checked>
+                <input class="img_radio inputBtn" type="radio" name="pizza_portion_${element.id}" value="full" checked>
                 <img class="img_resize" src="../images/PizzaPortionFull.png">
             </label>
 
             <label>
-                <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="right">
+                <input class="img_radio inputBtn" type="radio" name="pizza_portion_${element.id}" value="right">
                 <img class="img_resize" src="../images/PizzaPortionRight.png">
             </label>
         </div>
 </div>`;
 });
+
+pizza.innerHTML += `
+<div id="specialOfferDiv">
+    <img id="offerSign" src="../images/special_offer.png">
+</div>
+<div id="addToOrder">
+    <h2>Order</h2>
+    <div id="toppingsOnOrder">
+
+    </div>
+    <div id="orderCost">
+        <p>Total Cost: </p>
+    </div>
+    <div id="addToOrderBtn">
+        Add To Order
+    </div>
+</div>
+`
