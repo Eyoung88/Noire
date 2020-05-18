@@ -62,36 +62,4 @@ Array.from(toppings).forEach(function (element) {
         </div>
     </div>
 </div>`;
-<<<<<<< HEAD
 });
-
-// export const pizza_app = `
-// <h2>Pizza Ordering</h2>
-//     <div class="topping_amount">
-//     <label class="container">Extra
-//         <input type="radio" id="pepExtra" name="topping_amount" value="Extra">
-//         <span class="checkmark"></span>
-//     </label>
-//     </div>
-//     <div class="portion_of_pizza">
-//             <label class="container">Left Half
-//                 <input type="radio" id="pepLeft" name="pizza_portion" value="left">
-//                 <span class="checkmark"></span>
-//             </label>
-//             <label class="container">Normal
-//                 <input type="radio" id="pepRight" name="pizza_portion" value="right">
-//                 <span class="checkmark"></span>
-//             </label>
-//             <label class="container">None
-//                 <input type="radio" id="pepFull" name="pizza_portion" value="full">
-//                 <span class="checkmark"></span>
-//             </label>
-//         </div>
-//     <div>
-//       <canvas id='pizza_view'></canvas>
-//     </div>
-//     <div id='image_holder'></div>
-// `;
-=======
-});
->>>>>>> 2147ab5ba82117a93fc6e601aef260509bc76c8b
