@@ -1,5 +1,8 @@
+const head = document.getElementsByTagName('head');
 const pizza = document.getElementById("pizza");
 const toppings = document.getElementsByClassName("toppings");
+
+head.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">`;
 
 pizza.innerHTML = `<div id="toppings_row">
 <div id="Pepperoni" class="toppings"></div>
