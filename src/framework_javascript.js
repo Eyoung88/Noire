@@ -1,7 +1,5 @@
-const pizza = document.getElementById("pizza");
-const toppings = document.getElementsByClassName("toppings");
 
-pizza.innerHTML = `<div id="toppings_row">
+export const pizza = `<div id="toppings_row">
 <div id="pepperoni" class="toppings">Pepperoni</div>
 <div id="ham" class="toppings">Ham</div>
 <div id="olives" class="toppings">Olives</div>
@@ -13,11 +11,13 @@ pizza.innerHTML = `<div id="toppings_row">
 <div id="anchovies" class="toppings">Anchovies</div>
 <div id="jalapenos" class="toppings">Jalapenos</div>
 </div>
-<div id="pizza_canvas">
-<canvas id="myCanvas" width="620" height="624"></canvas>
+<div id="image_holder">
+<canvas id="pizza_view"></canvas>
 </div>`;
 
-Array.from(toppings).forEach(function (element) {
+export const toppingArray = document.getElementsByClassName("toppings");
+
+Array.from(toppingArray).forEach(function (element) {
     element.innerHTML += `<div class="toppings_box">
         <div class="topping_amount">
             <label class="container">
@@ -53,31 +53,3 @@ Array.from(toppings).forEach(function (element) {
 
 </div>`;
 });
-
-// export const pizza_app = `
-// <h2>Pizza Ordering</h2>
-//     <div class="topping_amount">
-//     <label class="container">Extra
-//         <input type="radio" id="pepExtra" name="topping_amount" value="Extra">
-//         <span class="checkmark"></span>
-//     </label>
-//     </div>
-//     <div class="portion_of_pizza">
-//             <label class="container">Left Half
-//                 <input type="radio" id="pepLeft" name="pizza_portion" value="left">
-//                 <span class="checkmark"></span>
-//             </label>
-//             <label class="container">Normal
-//                 <input type="radio" id="pepRight" name="pizza_portion" value="right">
-//                 <span class="checkmark"></span>
-//             </label>
-//             <label class="container">None
-//                 <input type="radio" id="pepFull" name="pizza_portion" value="full">
-//                 <span class="checkmark"></span>
-//             </label>
-//         </div>
-//     <div>
-//       <canvas id='pizza_view'></canvas>
-//     </div>
-//     <div id='image_holder'></div>
-// `;

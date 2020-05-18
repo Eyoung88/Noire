@@ -1,15 +1,15 @@
 import './style.scss';
 import { pizza } from './framework_javascript';
-import { toppings } from './framework_javascript';
+import { toppingArray } from './framework_javascript';
 import { isChecked } from './prices';
-import {data} from './data';
+import { data } from './data';
 
-document.getElementById('pizza').innerHTML = toppings;
+document.getElementById('pizza').innerHTML = pizza;
 
 const image_holder = document.getElementById('image_holder');
-
+console.log(image_holder);
 const pizza_image = document.createElement('IMG');
-image_holder.appendChild(pizza_image);
+// image_holder.appendChild(pizza_image);
 pizza_image.setAttribute('src', './images/pizza_canvas.png');
 
 let topping = [];
@@ -27,25 +27,26 @@ const topping_loader = () => {
         topping[idx].right.setAttribute('src', `./images/${topping1.file_prefix}_right.png`);
     });
 };
-
 topping_loader();
 
+
 const canvas = document.getElementById('pizza_view');
-canvas.width = 270;
-canvas.height = 270;
+
+canvas.width = 630;
+canvas.height = 630;
 const ctx = canvas.getContext('2d');
 
 let pep_left = false;
 let pep_right = true;
 
 const loop = () => {
-    ctx.clearRect(0, 0, 270, 270);
-    ctx.drawImage(pizza_image, 10, 10);
+    ctx.clearRect(0, 0, 0, 0);
+    ctx.drawImage(pizza_image, 0, 0);
     if (pep_left) {
-        ctx.drawImage(topping[0].left, 10, 10);
+        ctx.drawImage(topping[0].left, 0, 0);
     }
     if (pep_right) {
-        ctx.drawImage(topping[0].right, 10, 10);
+        ctx.drawImage(topping[0].right, 0, 0);
     }
 
 };
