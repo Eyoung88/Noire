@@ -35,6 +35,7 @@ Array.from(toppings).forEach(function (element) {
         <div>
             <p id="order">Hello</p>
         </div>
+        <canvas id='pizza_view'></canvas>
         <div id='image_holder'></div>
 </div>`;
 });
