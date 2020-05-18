@@ -1,4 +1,5 @@
 import './style.scss';
+import { pizza } from './framework_javascript';
 import { toppings } from './framework_javascript';
 import { isChecked } from './prices';
 import {data} from './data';
