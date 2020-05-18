@@ -1,13 +1,12 @@
 import './style.scss';
 import { pizza } from './framework_javascript';
 import { toppingArray } from './framework_javascript';
-import { isChecked } from './prices';
+import { isChecked } from './prices'; //CHANGE
 import { data } from './data';
 
 document.getElementById('pizza').innerHTML = pizza;
 
 const image_holder = document.getElementById('image_holder');
-console.log(image_holder);
 const pizza_image = document.createElement('IMG');
 // image_holder.appendChild(pizza_image);
 pizza_image.setAttribute('src', './images/pizza_canvas.png');
@@ -16,7 +15,7 @@ let topping = [];
 
 const topping_loader = () => {
     data.toppings.forEach((topping1, idx) => {
-        console.log(topping1.name, idx);
+        // console.log(topping1.name, idx);
         topping[idx] = {};
         topping[idx].left = document.createElement('IMG');
         // image_holder.appendChild(topping[idx].left);
@@ -29,7 +28,9 @@ const topping_loader = () => {
 };
 topping_loader();
 
+let counter = 0; 
 Array.from(toppingArray).forEach(function (element) {
+    console.log(data.toppings[counter].name);
     element.innerHTML += `<div class="toppings_box">
         <div class="topping_amount">
             <label class="container">
@@ -64,7 +65,35 @@ Array.from(toppingArray).forEach(function (element) {
         </div>
 
 </div>`;
+
+counter++;
 });
+
+const addPrice = (evt)  => {
+    console.log("Help again")
+    let price = 0;
+    if(evt.target.checked == true) {
+        console.log("Help in an if")
+        price++;
+        document.getElementById("total").innerHTML = "Your current price is: " + price;
+    }
+}
+for (let iterator of document.getElementsByClassName('img_radio')) {
+    iterator.addEventListener('click', addPrice);
+} 
+
+console.log("Help")
+
+//    let price = 0;
+   
+//    if(document.getElementById('inputBtn').click()) {
+//       document.getElementById("order").innerHTML = "Your current price is: " + price;
+//    }
+//    else {
+//       document.getElementById('order').innerHTML = "Please select an option";
+//       evt.preventDefault();
+//    }
+
 
 
 const canvas = document.getElementById('pizza_view');
@@ -152,10 +181,10 @@ const loop = () => {
         ctx.drawImage(topping[8].right, 0, 0);
     }
     if (sausage_left) {
-        ctx.drawImage(topping[10].left, 0, 0);
+        ctx.drawImage(topping[9].left, 0, 0);
     }
     if (sausage_right) {
-        ctx.drawImage(topping[10].right, 0, 0);
+        ctx.drawImage(topping[9].right, 0, 0);
     }
 
 };
