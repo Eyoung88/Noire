@@ -1,5 +1,8 @@
+const head = document.getElementsByTagName('head');
 const pizza = document.getElementById("pizza");
 const toppings = document.getElementsByClassName("toppings");
+
+head.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">`;
 
 pizza.innerHTML = `<div id="toppings_row">
 <div id="Pepperoni" class="toppings"></div>
@@ -59,6 +62,7 @@ Array.from(toppings).forEach(function (element) {
         </div>
     </div>
 </div>`;
+<<<<<<< HEAD
 });
 
 // export const pizza_app = `
@@ -88,3 +92,6 @@ Array.from(toppings).forEach(function (element) {
 //     </div>
 //     <div id='image_holder'></div>
 // `;
+=======
+});
+>>>>>>> 2147ab5ba82117a93fc6e601aef260509bc76c8b
