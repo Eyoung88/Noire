@@ -213,10 +213,15 @@ window.onclick = function (event) {
 }
 
 document.getElementById("special1").addEventListener('click', createSpecialPizza1);
+document.getElementById("special1").addEventListener('click', calculateTotalPrice);
 document.getElementById("special2").addEventListener('click', createSpecialPizza2);
+document.getElementById("special2").addEventListener('click', calculateTotalPrice);
 document.getElementById("special3").addEventListener('click', createSpecialPizza3);
+document.getElementById("special3").addEventListener('click', calculateTotalPrice);
 document.getElementById("special4").addEventListener('click', createSpecialPizza4);
+document.getElementById("special4").addEventListener('click', calculateTotalPrice);
 document.getElementById("special5").addEventListener('click', createSpecialPizza5);
+document.getElementById("special5").addEventListener('click', calculateTotalPrice);
 
 const extraRadioBtn = document.getElementsByClassName("extra_radio");
 const normalRadioBtn = document.getElementsByClassName("normal_radio");
