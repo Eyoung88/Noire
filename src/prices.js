@@ -1,18 +1,18 @@
 var toppingsSelected = 0;
 
 //This will be used hide the sign when they dont have 5 topping but when they do we will modify it to show
-toggle_visibility('offerSign');
 
-function toggle_visibility(id) {
-   var e = document.getElementById(id);
-   if (e.style.display == 'block')
-      e.style.display = 'none';
-   else
-      e.style.display = 'block';
-}
+// toggle_visibility('special-deal');
 
-var radioChecked = document.getElementById('inputBtn').addEventListener('click', isChecked);
-var showSign = document.getElementById('inputBtn').addEventListener('click', function(){toggle_visibility('offerSign')});
+// function toggle_visibility(id) {
+//    var e = document.getElementById(id);
+//    if (e.style.display == 'block')
+//       e.style.display = 'none';
+//    else
+//       e.style.display = 'block';
+// }
+
+// var radioChecked = document.getElementById('inputBtn').addEventListener('click', isChecked);
 
 export const isChecked = (evt)  => {
    let price = 0;
