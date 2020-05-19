@@ -78,6 +78,7 @@ html{
   display: flex;
   border: solid 1px #000;
 }
+
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -107,4 +108,37 @@ html{
   text-align: center;
   vertical-align: middle;
   line-height: 40px;
+}
+
+#pizza_size {
+  text-align: center;
+  margin: auto;
+}
+
+.size_options_list {
+  list-style-type: none;
+  width: 30%;
+  margin: auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.size_options_list li {
+  float: left;
+  margin: 0 5px 0 0;
+  width: 100px;
+  height: 40px;
+  position: relative;
+}
+
+.size_options_list label {
+  padding: 5px;
+  border: 1px solid #CCC;
+  cursor: pointer;
+  z-index: 90;
+}
+
+.size_options_list label:hover {
+  background: #DDD;
 }
