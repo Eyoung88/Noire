@@ -38,6 +38,15 @@ export const pizza = `
                 </li>
             </ul>
         </div>
+        <div id="add_to_order"><h2 class="topping_font">Add To Order</h2>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close"></span>
+                    <h1>Thank you for your order!</h1>
+                    <p id="total_amount"></p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>`;
 
