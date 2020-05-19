@@ -1,5 +1,5 @@
 html{
-    background-color: blanchedalmond;
+    background-color: #eee;
 }
 
 .column {
@@ -111,7 +111,8 @@ html{
 
 .btn {
   width: 20%;
-  background-color: lightblue;
+  background-color: rgba(251, 6, 6, 0.541);
+  color: black;
   border: 1px solid rgba(0, 0, 0, 0.8);
   text-align: center;
   height: 40px;
@@ -158,4 +159,15 @@ html{
   font-size: 48px;
   display: flex;
   border: solid 1px #000;
+}
+
+#specialImg {
+  margin-top: 115px;
+  margin-left: 160px;
+}
+
+#pizzaTitleLab {
+  display: flex;
+  font-size: 50px;
+  justify-content: center;
 }

@@ -110,6 +110,9 @@ const calculateTotalPrice = () => {
     });
     if(toppingCounter >= 5){
         dealCost = -1;
+        let elem = document.createElement("IMG");
+        document.getElementById("specialImg").appendChild(elem);
+        elem.src = './images/special_offer.png';
     }
     else{
         dealCost = 0;
