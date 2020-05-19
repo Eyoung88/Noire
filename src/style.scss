@@ -2,40 +2,38 @@ html{
     background-color: blanchedalmond;
 }
 
-.row {
-  display: flex;
-}
-
 .column {
   flex: 50%;
   padding: 10px;
   height: 300px;
 }
 
-#pizzaCanvas {
-  margin: auto;
+#image_holder {
   justify-content: center;
-}
-
-.test {
-  background-color: springgreen;
-  width: 30px;
-  height: 30px;
+  width: 50%;
+  float: left;
 }
 
 #pizza {
   display: flex;
-  flex-direction: row;
-  width: 80%;
+  flex-direction: column;
+  width: 90%;
   margin: auto;
   background-color: #aaa;
   border: solid #000;
 }
 
 #toppings_row {
+  float: left;
   width: 50%;
-  margin: auto;
   text-align: center;
+}
+
+#special_pizzas {
+  display: flex;
+  flex-direction: row;
+  border: solid #000;
+  height: 100px;
 }
 
 .toppings {
@@ -92,4 +90,16 @@ html{
 .topping_font {
   font-family: 'Balsamiq Sans', cursive;
   font-size: 30px;
+}
+
+.btn {
+  width: 20%;
+  background-color: lightblue;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
+  height: 40px;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
 }
