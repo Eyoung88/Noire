@@ -112,6 +112,8 @@ const calculateTotalPrice = () => {
         }
     })
     let counter = 0;
+    var img = document.getElementById('specialImg');
+    img.style.display = 'none';
     Array.from(toppingArray).forEach(function (element) {
         if (extraBtn[counter].checked) {
             totalPrice += 2;
@@ -128,9 +130,7 @@ const calculateTotalPrice = () => {
     });
     if (toppingCounter >= 5) {
         dealCost = -1;
-        let elem = document.createElement("IMG");
-        document.getElementById("specialImg").appendChild(elem);
-        elem.src = './images/special_offer.png';
+        img.style.display = 'block';
     }
     else {
         dealCost = 0;

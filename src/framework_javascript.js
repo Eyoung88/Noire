@@ -39,7 +39,9 @@ export const pizza = `
                 </li>
             </ul>
         </div>
-        <div id="specialImg"></div>
+        <div id="specialImg">
+            <img src='./images/special_offer.png'>
+        </div>
         <div id="add_to_order"><h2 class="topping_font">Add To Order</h2>
             <div id="myModal" class="modal">
                 <div class="modal-content">
