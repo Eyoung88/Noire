@@ -1,7 +1,7 @@
 import './style.scss';
 import { pizza } from './framework_javascript';
 import { toppingArray } from './framework_javascript';
-import { isChecked } from './prices'; //CHANGE
+import { isChecked } from './prices';
 import { data } from './data';
 
 document.getElementById('pizza').innerHTML = pizza;
