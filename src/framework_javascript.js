@@ -15,6 +15,7 @@ export const pizza = `
         <div id="${data.toppings[8].name}" class="toppings"></div>
         <div id="${data.toppings[9].name}" class="toppings"></div>
     </div>
+    <div id="total">Your current price</div>
     <div id="image_holder">
         <canvas id="pizza_view"></canvas>
         <div id="pizza_size">
@@ -36,6 +37,15 @@ export const pizza = `
                     <input class="size_radio" type="radio" name="pizza_size" value="small" />
                 </li>
             </ul>
+        </div>
+        <div id="add_to_order"><h2 class="topping_font">Add To Order</h2>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close"></span>
+                    <h1>Thank you for your order!</h1>
+                    <p id="total_amount"></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>`;
