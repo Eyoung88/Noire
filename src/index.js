@@ -16,7 +16,7 @@ let topping = [];
 
 const topping_loader = () => {
     data.toppings.forEach((topping1, idx) => {
-        console.log(topping1.name, idx);
+        // console.log(topping1.name, idx);
         topping[idx] = {};
         topping[idx].left = document.createElement('IMG');
         // image_holder.appendChild(topping[idx].left);
@@ -31,50 +31,57 @@ topping_loader();
 
 const special_pizzas = document.getElementById("special_pizzas");
 special_pizzas.innerHTML = `
-<div>1</div>
-<div>2</div>
-<div>3</div>
-<div>4</div>
-<div>5</div>
+<div id="special1" class="btn topping_font">Special 1</div>
+<div id="special2" class="btn topping_font">Special 2</div>
+<div id="special3" class="btn topping_font">Special 3</div>
+<div id="special4" class="btn topping_font">Special 4</div>
+<div id="special5" class="btn topping_font">Special 5</div>
 `;
 
+let counter = 0;
 Array.from(toppingArray).forEach(function (element) {
     element.innerHTML += `<div class="toppings_box">
-        <div class="topping_amount">
-            <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Extra">
-                <img class="topping_resize" src="./images/Extra.png">
-            </label>
-            <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Normal" checked>
-                <img class="topping_resize" src="./images/Normal.png">
-            </label>
-            <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="None">
-                <img class="topping_resize" src="./images/None.png">
-
-            </label>
+    <div class="grid-container">
+        <div class="grid-item topping_font">${data.toppings[counter].name}</div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>  
+        <div class="grid-item"></div>
+        <div class="grid-item">
+            <div class="topping_amount">
+                <label class="container">
+                    <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Extra">
+                    <img class="topping_resize" src="./images/Extra.png">
+                </label>
+                <label class="container">
+                    <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Normal">
+                    <img class="topping_resize" src="./images/Normal.png">
+                </label>
+                <label class="container">
+                    <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="None" checked>
+                    <img class="topping_resize" src="./images/None.png">
+                </label>
+            </div>
         </div>
-        <div class="portion_of_pizza">
+        <div class="grid-item">
+            <div class="portion_of_pizza">
             <label>
                 <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="left">
                 <img class="img_resize" src="./images/PizzaPortionLeft.png">
             </label>
-
             <label>
-                <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="full" checked>
+                <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="full">
                 <img class="img_resize" src="./images/PizzaPortionFull.png">
             </label>
-
             <label>
                 <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="right">
                 <img class="img_resize" src="./images/PizzaPortionRight.png">
             </label>
         </div>
-
+    </div>
+</div>
 </div>`;
+    counter++;
 });
-
 
 const canvas = document.getElementById('pizza_view');
 
@@ -82,26 +89,32 @@ canvas.width = 630;
 canvas.height = 630;
 const ctx = canvas.getContext('2d');
 
-let anchovy_left = true;
-let anchovy_right = true;
-let bacon_left = true;
-let bacon_right = true;
-let bellPepper_left = true;
-let bellPepper_right = true;
-let cheese_left = true;
-let cheese_right = true;
-let ham_left = true;
-let ham_right = true;
-let jalapeno_left = true;
-let jalapeno_right = true;
-let olive_left = true;
-let olive_right = true;
-let pepperoni_left = true;
-let pepperoni_right = true;
-let pineapple_left = true;
-let pineapple_right = true;
-let sausage_left = true;
-let sausage_right = true;
+let anchovy_left = false;
+let anchovy_right = false;
+let bacon_left = false;
+let bacon_right = false;
+let bellPepper_left = false;
+let bellPepper_right = false;
+let cheese_left = false;
+let cheese_right = false;
+let ham_left = false;
+let ham_right = false;
+let jalapeno_left = false;
+let jalapeno_right = false;
+let olive_left = false;
+let olive_right = false;
+let pepperoni_left = false;
+let pepperoni_right = false;
+let pineapple_left = false;
+let pineapple_right = false;
+let sausage_left = false;
+let sausage_right = false;
+
+document.getElementById("special1").addEventListener('click', createSpecialPizza1);
+document.getElementById("special2").addEventListener('click', createSpecialPizza2);
+document.getElementById("special3").addEventListener('click', createSpecialPizza3);
+document.getElementById("special4").addEventListener('click', createSpecialPizza4);
+document.getElementById("special5").addEventListener('click', createSpecialPizza5);
 
 const loop = () => {
     ctx.clearRect(0, 0, 0, 0);
@@ -161,12 +174,175 @@ const loop = () => {
         ctx.drawImage(topping[8].right, 0, 0);
     }
     if (sausage_left) {
-        ctx.drawImage(topping[10].left, 0, 0);
+        ctx.drawImage(topping[9].left, 0, 0);
     }
     if (sausage_right) {
-        ctx.drawImage(topping[10].right, 0, 0);
+        ctx.drawImage(topping[9].right, 0, 0);
     }
 
 };
 
 setInterval(loop, 100);
+
+function createSpecialPizza1() {
+    anchovy_left = false;
+    anchovy_right = false;
+    bacon_left = false;
+    bacon_right = false;
+    ham_left = false;
+    ham_right = false;
+    jalapeno_left = false;
+    jalapeno_right = false;
+    pepperoni_left = false;
+    pepperoni_right = false;
+    pineapple_left = false;
+    pineapple_right = false;
+    sausage_left = false;
+    sausage_right = false;
+
+    cheese_left = true;
+    cheese_right = true;
+    bellPepper_left = true;
+    bellPepper_right = true;
+    olive_left = true;
+    olive_right = true;
+
+
+}
+
+function createSpecialPizza2() {
+    anchovy_left = false;
+    anchovy_right = false;
+    bacon_left = false;
+    bacon_right = false;
+    bellPepper_left = false;
+    bellPepper_right = false;
+    cheese_left = false;
+    cheese_right = false;
+    ham_left = false;
+    ham_right = false;
+    jalapeno_left = false;
+    jalapeno_right = false;
+    olive_left = false;
+    olive_right = false;
+    pepperoni_left = false;
+    pepperoni_right = false;
+    pineapple_left = false;
+    pineapple_right = false;
+    sausage_left = false;
+    sausage_right = false;
+
+    cheese_left = true;
+    cheese_right = true;
+    ham_left = true;
+    ham_right = true;
+    jalapeno_left = true;
+    jalapeno_right = true;
+    anchovy_left = true;
+    anchovy_right = true;
+}
+
+function createSpecialPizza3() {
+    anchovy_left = false;
+    anchovy_right = false;
+    bacon_left = false;
+    bacon_right = false;
+    bellPepper_left = false;
+    bellPepper_right = false;
+    cheese_left = false;
+    cheese_right = false;
+    ham_left = false;
+    ham_right = false;
+    jalapeno_left = false;
+    jalapeno_right = false;
+    olive_left = false;
+    olive_right = false;
+    pepperoni_left = false;
+    pepperoni_right = false;
+    pineapple_left = false;
+    pineapple_right = false;
+    sausage_left = false;
+    sausage_right = false;
+
+    jalapeno_left = true;
+    jalapeno_right = true;
+    bellPepper_left = true;
+    bellPepper_right = true;
+    olive_left = true;
+    olive_right = true;
+    pineapple_left = true;
+    pineapple_right = true;
+}
+
+function createSpecialPizza4() {
+    anchovy_left = false;
+    anchovy_right = false;
+    bacon_left = false;
+    bacon_right = false;
+    bellPepper_left = false;
+    bellPepper_right = false;
+    cheese_left = false;
+    cheese_right = false;
+    ham_left = false;
+    ham_right = false;
+    jalapeno_left = false;
+    jalapeno_right = false;
+    olive_left = false;
+    olive_right = false;
+    pepperoni_left = false;
+    pepperoni_right = false;
+    pineapple_left = false;
+    pineapple_right = false;
+    sausage_left = false;
+    sausage_right = false;
+
+    cheese_left = true;
+    cheese_right = true;
+    ham_left = true;
+    ham_right = true;
+    anchovy_left = true;
+    anchovy_right = true;
+    bacon_left = true;
+    bacon_right = true;
+    sausage_left = true;
+    sausage_right = true;
+    pepperoni_left = true;
+    pepperoni_right = true;
+}
+
+function createSpecialPizza5() {
+    anchovy_left = false;
+    anchovy_right = false;
+    bacon_left = false;
+    bacon_right = false;
+    bellPepper_left = false;
+    bellPepper_right = false;
+    cheese_left = false;
+    cheese_right = false;
+    ham_left = false;
+    ham_right = false;
+    jalapeno_left = false;
+    jalapeno_right = false;
+    olive_left = false;
+    olive_right = false;
+    pepperoni_left = false;
+    pepperoni_right = false;
+    pineapple_left = false;
+    pineapple_right = false;
+    sausage_left = false;
+    sausage_right = false;
+
+    cheese_left = true;
+    cheese_right = true;
+    ham_left = true;
+    ham_right = true;
+    pineapple_left = true;
+    pineapple_right = true;
+}
+
+
+
+if (document.getElementById('rates').value)
+
+// topping_amount_${element.id}
+// pizza_portion_${element.id}
