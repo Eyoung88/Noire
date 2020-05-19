@@ -18,10 +18,24 @@ export const pizza = `
     <div id="image_holder">
         <canvas id="pizza_view"></canvas>
         <div id="pizza_size">
-            <div id="x-large"></div>
-            <div id="large"></div>
-            <div id="medium"></div>
-            <div id="small"></div>
+            <ul class="size_options_list">
+                <li>
+                    <label>X-Large
+                    <input class="size_radio" type="radio" name="pizza_size" value="x-large" />
+                </li>
+                <li>
+                    <label>Large
+                    <input class="size_radio" type="radio" name="pizza_size" value="large" checked />
+                </li>
+                <li>
+                    <label>Medium
+                    <input class="size_radio" type="radio" name="pizza_size" value="medium" />
+                </li>
+                <li>
+                    <label>Small
+                    <input class="size_radio" type="radio" name="pizza_size" value="small" />
+                </li>
+            </ul>
         </div>
     </div>
 </div>`;
