@@ -29,6 +29,15 @@ const topping_loader = () => {
 };
 topping_loader();
 
+const special_pizzas = document.getElementById("special_pizzas");
+special_pizzas.innerHTML = `
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+`;
+
 Array.from(toppingArray).forEach(function (element) {
     element.innerHTML += `<div class="toppings_box">
         <div class="topping_amount">
