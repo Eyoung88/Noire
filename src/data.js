@@ -43,10 +43,6 @@ export let data = {
             "file_prefix": "pineapple"
         },
         {
-            "name": "crust",
-            "file_prefix": "pizza_canvas"
-        },
-        {
             "name": "sausage",
             "file_prefix": "sausage"
         }

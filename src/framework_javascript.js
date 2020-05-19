@@ -1,65 +1,29 @@
-const head = document.getElementsByTagName('head');
-const pizza = document.getElementById("pizza");
-const toppings = document.getElementsByClassName("toppings");
+import { data } from './data';
 
-head.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">`;
-
-pizza.innerHTML = `<div id="toppings_row">
-<div id="Pepperoni" class="toppings"></div>
-<div id="Ham" class="toppings"></div>
-<div id="Olives" class="toppings"></div>
-<div id="Pineapple" class="toppings"></div>
-<div id="Sausage" class="toppings"></div>
-<div id="Bacon" class="toppings"></div>
-<div id="Bell Peppers" class="toppings"></div>
-<div id="Cheese" class="toppings"></div>
-<div id="Anchovies" class="toppings"></div>
-<div id="Jalapenos" class="toppings"></div>
-</div>
-<div id="pizza_canvas">
-<canvas id="myCanvas" width="620" height="624"></canvas>
-</div>`;
-
-Array.from(toppings).forEach(function (element) {
-    element.innerHTML += `<div class="toppings_box">
-
-        <div class="grid-container">
-            <div class="grid-item topping_font">${element.id}</div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>  
-            <div class="grid-item"></div>
-            <div class="grid-item">
-                <div class="topping_amount">
-                    <label class="container">
-                        <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Extra">
-                        <img class="topping_resize" src="./images/Extra.png">
-                    </label>
-                    <label class="container">
-                        <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Normal" checked>
-                        <img class="topping_resize" src="./images/Normal.png">
-                    </label>
-                    <label class="container">
-                        <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="None">
-                        <img class="topping_resize" src="./images/None.png">
-                    </label>
-                </div>
-            </div>
-            <div class="grid-item">
-                <div class="portion_of_pizza">
-                <label>
-                    <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="left">
-                    <img class="img_resize" src="./images/PizzaPortionLeft.png">
-                </label>
-                <label>
-                    <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="full" checked>
-                    <img class="img_resize" src="./images/PizzaPortionFull.png">
-                </label>
-                <label>
-                    <input class="img_radio" type="radio" name="pizza_portion_${element.id}" value="right">
-                    <img class="img_resize" src="./images/PizzaPortionRight.png">
-                </label>
-            </div>
+export const pizza = `
+<div id="special_pizzas"></div>
+<div">
+    <div id="toppings_row">
+        <div id="${data.toppings[0].name}" class="toppings"></div>
+        <div id="${data.toppings[1].name}" class="toppings"></div>
+        <div id="${data.toppings[2].name}" class="toppings"></div>
+        <div id="${data.toppings[3].name}" class="toppings"></div>
+        <div id="${data.toppings[4].name}" class="toppings"></div>
+        <div id="${data.toppings[5].name}" class="toppings"></div>
+        <div id="${data.toppings[6].name}" class="toppings"></div>
+        <div id="${data.toppings[7].name}" class="toppings"></div>
+        <div id="${data.toppings[8].name}" class="toppings"></div>
+        <div id="${data.toppings[9].name}" class="toppings"></div>
+    </div>
+    <div id="image_holder">
+        <canvas id="pizza_view"></canvas>
+        <div id="pizza_size">
+            <div id="x-large"></div>
+            <div id="large"></div>
+            <div id="medium"></div>
+            <div id="small"></div>
         </div>
     </div>
 </div>`;
-});
+
+export const toppingArray = document.getElementsByClassName("toppings");
