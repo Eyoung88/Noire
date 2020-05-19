@@ -66,7 +66,7 @@ Array.from(toppingArray).forEach(function (element) {
                 <img class="img_resize" src="./images/PizzaPortionLeft.png">
             </label>
             <label>
-                <input class="img_radio full_radio"" type="radio" name="pizza_portion_${element.id}" value="full" checked />
+                <input class="img_radio full_radio" type="radio" name="pizza_portion_${element.id}" value="full" checked/>
                 <img class="img_resize" src="./images/PizzaPortionFull.png">
             </label>
             <label>
@@ -110,6 +110,9 @@ const calculateTotalPrice = () => {
     });
     if (toppingCounter >= 5) {
         dealCost = -1;
+        let elem = document.createElement("IMG");
+        document.getElementById("specialImg").appendChild(elem);
+        elem.src = './images/special_offer.png';
     }
     else {
         dealCost = 0;

@@ -1,6 +1,7 @@
 import { data } from './data';
 
 export const pizza = `
+<div id="pizzaTitleLab">Noire Pizza</div>
 <div id="special_pizzas"></div>
 <div">
     <div id="toppings_row">
@@ -38,6 +39,7 @@ export const pizza = `
                 </li>
             </ul>
         </div>
+        <div id="specialImg"></div>
         <div id="add_to_order"><h2 class="topping_font">Add To Order</h2>
             <div id="myModal" class="modal">
                 <div class="modal-content">
