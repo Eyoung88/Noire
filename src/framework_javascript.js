@@ -17,6 +17,12 @@ export const pizza = `
     </div>
     <div id="image_holder">
         <canvas id="pizza_view"></canvas>
+        <div id="pizza_size">
+            <div id="x-large"></div>
+            <div id="large"></div>
+            <div id="medium"></div>
+            <div id="small"></div>
+        </div>
     </div>
 </div>`;
 

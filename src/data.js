@@ -45,10 +45,6 @@ export let data = {
         {
             "name": "sausage",
             "file_prefix": "sausage"
-        },
-        {
-            "name": "crust",
-            "file_prefix": "pizza_canvas"
         }
     ],
     prebuilt1: [
