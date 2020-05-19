@@ -66,7 +66,7 @@ Array.from(toppingArray).forEach(function (element) {
                 <img class="img_resize" src="./images/PizzaPortionLeft.png">
             </label>
             <label>
-                <input class="img_radio full_radio"" type="radio" name="pizza_portion_${element.id}" value="full" />
+                <input class="img_radio full_radio"" type="radio" name="pizza_portion_${element.id}" value="full" checked/>
                 <img class="img_resize" src="./images/PizzaPortionFull.png">
             </label>
             <label>
