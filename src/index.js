@@ -82,9 +82,10 @@ Array.from(toppingArray).forEach(function (element) {
 var extraBtn = document.getElementsByClassName("extraBtn");
 var normalBtn = document.getElementsByClassName("normalBtn");
 var noneBtn = document.getElementsByClassName("noneBtn");
+var sizeList = document.getElementsByClassName("size_radio");
 
 var totalPrice = 0;
-var price = 0;
+var sizePrice = 0;
 var toppingCounter = 0;
 var dealCost = 0;
 
@@ -92,7 +93,24 @@ const calculateTotalPrice = () => {
     dealCost = 0;
     toppingCounter = 0;
     totalPrice = -1;
-    //add in pizza size cost here
+    Array.from(sizeList).forEach(function(element){
+        if(element.checked){
+            Array.from(data.prices).forEach(function(price){
+                if("x-large" == element.value){
+                    sizePrice = 20;
+                }
+                else if("large" == element.value){
+                    sizePrice = 15;
+                }
+                else if("medium" == element.value){
+                    sizePrice = 12;
+                }
+                else if("small" == element.value){
+                    sizePrice = 8;
+                }
+            })
+        }
+    })
     let counter = 0;
     Array.from(toppingArray).forEach(function(element){
         if(extraBtn[counter].checked){
@@ -118,10 +136,9 @@ const calculateTotalPrice = () => {
     if(totalPrice == -1){
         totalPrice = 0;
     }
-    //totalPrice += pizzaSizeCost
+    totalPrice += sizePrice;
     document.getElementById("total").innerHTML = "Your current price is: $" + totalPrice + ".00";
 }
-
 
 for (let iterator of document.getElementsByClassName('extraBtn')) {
     iterator.addEventListener('click', calculateTotalPrice);
@@ -132,6 +149,11 @@ for (let iterator of document.getElementsByClassName('normalBtn')) {
 for (let iterator of document.getElementsByClassName('noneBtn')) {
     iterator.addEventListener('click', calculateTotalPrice);
 }
+for(let iterator of sizeList){
+    iterator.addEventListener('click', calculateTotalPrice);
+}
+
+calculateTotalPrice();
 
 const canvas = document.getElementById('pizza_view');
 
