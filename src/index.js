@@ -28,21 +28,21 @@ const topping_loader = () => {
 };
 topping_loader();
 
-let counter = 0; 
+let counter = 0;
 Array.from(toppingArray).forEach(function (element) {
-    console.log(data.toppings[counter].name);
+    // console.log(data.toppings[counter].name);
     element.innerHTML += `<div class="toppings_box">
         <div class="topping_amount">
             <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Extra">
+                <input class="img_radio extraBtn" type="radio" name="topping_amount_${element.id}" value="Extra">
                 <img class="topping_resize" src="./images/Extra.png">
             </label>
             <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="Normal" checked>
+                <input class="img_radio normalBtn" type="radio" name="topping_amount_${element.id}" value="Normal" checked>
                 <img class="topping_resize" src="./images/Normal.png">
             </label>
             <label class="container">
-                <input class="img_radio" type="radio" name="topping_amount_${element.id}" value="None">
+                <input class="img_radio noneBtn" type="radio" name="topping_amount_${element.id}" value="None">
                 <img class="topping_resize" src="./images/None.png">
 
             </label>
@@ -66,34 +66,63 @@ Array.from(toppingArray).forEach(function (element) {
 
 </div>`;
 
-counter++;
+    counter++;
 });
 
-const addPrice = (evt)  => {
-    console.log("Help again")
-    let price = 0;
-    if(evt.target.checked == true) {
-        console.log("Help in an if")
-        price++;
-        document.getElementById("total").innerHTML = "Your current price is: " + price;
+var totalPrice = 0;
+var dealPrice = 0;
+var price = 0;
+var toppingCounter = 0;
+
+const addDoublePrice = (evt) => {
+    toppingCounter += 2;
+    if (evt.target.checked == true) {
+        price += 2;
+        document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
     }
 }
-for (let iterator of document.getElementsByClassName('img_radio')) {
+for (let iterator of document.getElementsByClassName('extraBtn')) {
+    iterator.addEventListener('click', addDoublePrice);
+}
+
+const addPrice = (evt) => {
+    toppingCounter += 1;
+    if (evt.target.checked == true) {
+        price++;
+        document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
+    }
+
+}
+for (let iterator of document.getElementsByClassName('normalBtn')) {
     iterator.addEventListener('click', addPrice);
-} 
+}
 
-console.log("Help")
+const subPrice = (evt) => {
+    toppingCounter -= 1;
+    if (evt.target.checked == true) {
+        if (price == 0) {
+            console.log("If price is 0", price);
+            price = 0;
+            document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
+        }
+        else {
+            price--;
+            console.log("If price is subtraced", price);
+            document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
+        }
+    }
+    if (evt.target.checked == false) {
+        price++;
+        document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
+    }
+}
+for (let iterator of document.getElementsByClassName('noneBtn')) {
+    iterator.addEventListener('click', subPrice);
+}
 
-//    let price = 0;
-   
-//    if(document.getElementById('inputBtn').click()) {
-//       document.getElementById("order").innerHTML = "Your current price is: " + price;
-//    }
-//    else {
-//       document.getElementById('order').innerHTML = "Please select an option";
-//       evt.preventDefault();
-//    }
-
+if(toppingCounter == 5) {
+    totalPrice - 3;
+}
 
 
 const canvas = document.getElementById('pizza_view');
