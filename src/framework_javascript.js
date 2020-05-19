@@ -10,6 +10,7 @@ export const pizza = `<div id="toppings_row">
 <div id="pepperoni" class="toppings">Pepperoni</div>
 <div id="pineapple" class="toppings">Pineapple</div>
 <div id="sausage" class="toppings">Sausage</div>
+<div id="total">Price</div>
 </div>
 <div id="image_holder">
 <canvas id="pizza_view"></canvas>
