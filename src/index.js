@@ -46,15 +46,15 @@ Array.from(toppingArray).forEach(function (element) {
         <div class="grid-item">
             <div class="topping_amount">
                 <label class="container">
-                    <input class="img_radio extra_radio extraBtn" type="radio" name="topping_amount_${element.id}" value="Extra">
+                    <input class="img_radio extra_radio extraBtn" type="radio" name="topping_amount_${element.id}" value="Extra" />
                     <img class="topping_resize" src="./images/Extra.png">
                 </label>
                 <label class="container">
-                    <input class="img_radio normal_radio normalBtn" type="radio" name="topping_amount_${element.id}" value="Normal">
+                    <input class="img_radio normal_radio normalBtn" type="radio" name="topping_amount_${element.id}" value="Normal" />
                     <img class="topping_resize" src="./images/Normal.png">
                 </label>
                 <label class="container">
-                    <input class="img_radio none_radio noneBtn" type="radio" name="topping_amount_${element.id}" value="None" checked>
+                    <input class="img_radio none_radio noneBtn" type="radio" name="topping_amount_${element.id}" value="None" checked />
                     <img class="topping_resize" src="./images/None.png">
                 </label>
             </div>
@@ -62,15 +62,15 @@ Array.from(toppingArray).forEach(function (element) {
         <div class="grid-item">
             <div class="portion_of_pizza">
             <label>
-                <input class="img_radio left_radio" type="radio" name="pizza_portion_${element.id}" value="left">
+                <input class="img_radio left_radio" type="radio" name="pizza_portion_${element.id}" value="left" />
                 <img class="img_resize" src="./images/PizzaPortionLeft.png">
             </label>
             <label>
-                <input class="img_radio full_radio"" type="radio" name="pizza_portion_${element.id}" value="full">
+                <input class="img_radio full_radio"" type="radio" name="pizza_portion_${element.id}" value="full" />
                 <img class="img_resize" src="./images/PizzaPortionFull.png">
             </label>
             <label>
-                <input class="img_radio right_radio" type="radio" name="pizza_portion_${element.id}" value="right">
+                <input class="img_radio right_radio" type="radio" name="pizza_portion_${element.id}" value="right" />
                 <img class="img_resize" src="./images/PizzaPortionRight.png">
             </label>
         </div>
