@@ -77,7 +77,7 @@ var toppingCounter = 0;
 const addDoublePrice = (evt) => {
     toppingCounter += 2;
     if (evt.target.checked == true) {
-        price += 2;
+        totalPrice = price + 2;
         document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
     }
 }
@@ -88,7 +88,7 @@ for (let iterator of document.getElementsByClassName('extraBtn')) {
 const addPrice = (evt) => {
     toppingCounter += 1;
     if (evt.target.checked == true) {
-        price++;
+        totalPrice = price + 1;
         document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
     }
 
@@ -100,7 +100,7 @@ for (let iterator of document.getElementsByClassName('normalBtn')) {
 const subPrice = (evt) => {
     toppingCounter -= 1;
     if (evt.target.checked == true) {
-        if (price == 0) {
+        if (totalPrice == 0) {
             console.log("If price is 0", price);
             price = 0;
             document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
@@ -112,7 +112,7 @@ const subPrice = (evt) => {
         }
     }
     if (evt.target.checked == false) {
-        price++;
+        totalPrice = price + 1;
         document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
     }
 }
