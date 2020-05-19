@@ -77,13 +77,15 @@ var toppingCounter = 0;
 const addDoublePrice = (evt) => {
     toppingCounter += 2;
     if (evt.target.checked == true) {
-        totalPrice = price + 2;
+        price = 2;
         document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
     }
 }
 for (let iterator of document.getElementsByClassName('extraBtn')) {
     iterator.addEventListener('click', addDoublePrice);
 }
+
+totalPrice = price;
 
 const addPrice = (evt) => {
     toppingCounter += 1;
@@ -106,7 +108,8 @@ const subPrice = (evt) => {
             document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
         }
         else {
-            price--;
+            totalPrice--;
+            price = 0;
             console.log("If price is subtraced", price);
             document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
         }
@@ -120,9 +123,9 @@ for (let iterator of document.getElementsByClassName('noneBtn')) {
     iterator.addEventListener('click', subPrice);
 }
 
-if(toppingCounter == 5) {
-    totalPrice - 3;
-}
+// if(toppingCounter == 5) {
+//     totalPrice - 3;
+// }
 
 
 const canvas = document.getElementById('pizza_view');

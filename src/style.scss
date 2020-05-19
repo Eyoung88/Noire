@@ -75,3 +75,9 @@ html {
 .img_radio[type="radio"]:checked + img {
   background-color: rgba(251, 6, 6, 0.541);
 }
+
+#total {
+  font-size: 48px;
+  display: flex;
+  border: solid 1px #000;
+}
