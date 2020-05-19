@@ -94,31 +94,31 @@ const calculateTotalPrice = () => {
     totalPrice = -1;
     //add in pizza size cost here
     let counter = 0;
-    Array.from(toppingArray).forEach(function(element){
-        if(extraBtn[counter].checked){
+    Array.from(toppingArray).forEach(function (element) {
+        if (extraBtn[counter].checked) {
             totalPrice += 2;
             toppingCounter += 2;
         }
-        else if(normalBtn[counter].checked){
+        else if (normalBtn[counter].checked) {
             totalPrice += 1;
             toppingCounter += 1;
         }
-        else if(noneBtn[counter].checked){
+        else if (noneBtn[counter].checked) {
             totalPrice += 0;
         }
         counter++;
     });
-    if(toppingCounter >= 5){
+    if (toppingCounter >= 5) {
         dealCost = -1;
         let elem = document.createElement("IMG");
         document.getElementById("specialImg").appendChild(elem);
         elem.src = './images/special_offer.png';
     }
-    else{
+    else {
         dealCost = 0;
     }
     totalPrice += dealCost;
-    if(totalPrice == -1){
+    if (totalPrice == -1) {
         totalPrice = 0;
     }
     //totalPrice += pizzaSizeCost
@@ -173,6 +173,26 @@ let sausage_left = false;
 let sausage_right = false;
 let sausage_display = false;
 
+document.getElementById("add_to_order").addEventListener('click', addToOrder);
+
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+
+function addToOrder() {
+    modal.style.display = "block";
+    document.getElementById('total_amount').innerHTML = `The total cost of your pizza was $${totalPrice}.00`;
+}
+
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 document.getElementById("special1").addEventListener('click', createSpecialPizza1);
 document.getElementById("special2").addEventListener('click', createSpecialPizza2);
 document.getElementById("special3").addEventListener('click', createSpecialPizza3);
@@ -189,7 +209,7 @@ const rightRadioBtn = document.getElementsByClassName("right_radio");
 const loop = () => {
     ctx.clearRect(0, 0, 0, 0);
     ctx.drawImage(pizza_image, 0, 0);
-    if(anchovy_display){
+    if (anchovy_display) {
         if (anchovy_left) {
             ctx.drawImage(topping[0].left, 0, 0);
         }
@@ -197,7 +217,7 @@ const loop = () => {
             ctx.drawImage(topping[0].right, 0, 0);
         }
     }
-    if(bacon_display){
+    if (bacon_display) {
         if (bacon_left) {
             ctx.drawImage(topping[1].left, 0, 0);
         }
@@ -205,7 +225,7 @@ const loop = () => {
             ctx.drawImage(topping[1].right, 0, 0);
         }
     }
-    if(bell_peppers_display){
+    if (bell_peppers_display) {
         if (bell_peppers_left) {
             ctx.drawImage(topping[2].left, 0, 0);
         }
@@ -213,7 +233,7 @@ const loop = () => {
             ctx.drawImage(topping[2].right, 0, 0);
         }
     }
-    if(cheese_display){
+    if (cheese_display) {
         if (cheese_left) {
             ctx.drawImage(topping[3].left, 0, 0);
         }
@@ -221,7 +241,7 @@ const loop = () => {
             ctx.drawImage(topping[3].right, 0, 0);
         }
     }
-    if(ham_display){
+    if (ham_display) {
         if (ham_left) {
             ctx.drawImage(topping[4].left, 0, 0);
         }
@@ -229,7 +249,7 @@ const loop = () => {
             ctx.drawImage(topping[4].right, 0, 0);
         }
     }
-    if(jalepenos_display){
+    if (jalepenos_display) {
         if (jalepenos_left) {
             ctx.drawImage(topping[5].left, 0, 0);
         }
@@ -237,7 +257,7 @@ const loop = () => {
             ctx.drawImage(topping[5].right, 0, 0);
         }
     }
-    if(olives_display){
+    if (olives_display) {
         if (olives_left) {
             ctx.drawImage(topping[6].left, 0, 0);
         }
@@ -245,7 +265,7 @@ const loop = () => {
             ctx.drawImage(topping[6].right, 0, 0);
         }
     }
-    if(pepperoni_display){
+    if (pepperoni_display) {
         if (pepperoni_left) {
             ctx.drawImage(topping[7].left, 0, 0);
         }
@@ -253,7 +273,7 @@ const loop = () => {
             ctx.drawImage(topping[7].right, 0, 0);
         }
     }
-    if(pineapple_display){
+    if (pineapple_display) {
         if (pineapple_left) {
             ctx.drawImage(topping[8].left, 0, 0);
         }
@@ -261,7 +281,7 @@ const loop = () => {
             ctx.drawImage(topping[8].right, 0, 0);
         }
     }
-    if(sausage_display){
+    if (sausage_display) {
         if (sausage_left) {
             ctx.drawImage(topping[9].left, 0, 0);
         }
@@ -270,37 +290,37 @@ const loop = () => {
         }
     }
 
-    for(let i=0;i<extraRadioBtn.length;i++){
-        if(extraRadioBtn[i].checked){            
-            eval(data.toppings[i].name+"_display = true;");
+    for (let i = 0; i < extraRadioBtn.length; i++) {
+        if (extraRadioBtn[i].checked) {
+            eval(data.toppings[i].name + "_display = true;");
         }
     }
-    for(let i=0;i<normalRadioBtn.length;i++){
-        if(normalRadioBtn[i].checked){
-            eval(data.toppings[i].name+"_display = true;");
+    for (let i = 0; i < normalRadioBtn.length; i++) {
+        if (normalRadioBtn[i].checked) {
+            eval(data.toppings[i].name + "_display = true;");
         }
     }
-    for(let i=0;i<noneRadioBtn.length;i++){
-        if(noneRadioBtn[i].checked){
-            eval(data.toppings[i].name+"_display = false;");
+    for (let i = 0; i < noneRadioBtn.length; i++) {
+        if (noneRadioBtn[i].checked) {
+            eval(data.toppings[i].name + "_display = false;");
         }
     }
-    for(let i=0;i<leftRadioBtn.length;i++){
-        if(leftRadioBtn[i].checked){
-            eval(data.toppings[i].name+"_left = true;");
-            eval(data.toppings[i].name+"_right = false;");
+    for (let i = 0; i < leftRadioBtn.length; i++) {
+        if (leftRadioBtn[i].checked) {
+            eval(data.toppings[i].name + "_left = true;");
+            eval(data.toppings[i].name + "_right = false;");
         }
     }
-    for(let i=0;i<fullRadioBtn.length;i++){
-        if(fullRadioBtn[i].checked){
-            eval(data.toppings[i].name+"_left = true;");
-            eval(data.toppings[i].name+"_right = true;");
+    for (let i = 0; i < fullRadioBtn.length; i++) {
+        if (fullRadioBtn[i].checked) {
+            eval(data.toppings[i].name + "_left = true;");
+            eval(data.toppings[i].name + "_right = true;");
         }
     }
-    for(let i=0;i<rightRadioBtn.length;i++){
-        if(rightRadioBtn[i].checked){
-            eval(data.toppings[i].name+"_left = false;");
-            eval(data.toppings[i].name+"_right = true;");
+    for (let i = 0; i < rightRadioBtn.length; i++) {
+        if (rightRadioBtn[i].checked) {
+            eval(data.toppings[i].name + "_left = false;");
+            eval(data.toppings[i].name + "_right = true;");
         }
     }
 };
