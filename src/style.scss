@@ -1,9 +1,5 @@
-html {
-  background-color: blanchedalmond;
-}
-
-.row {
-  display: flex;
+html{
+    background-color: blanchedalmond;
 }
 
 .column {
@@ -12,34 +8,35 @@ html {
   height: 300px;
 }
 
-#pizzaCanvas {
-  margin: auto;
+#image_holder {
   justify-content: center;
-}
-
-.test {
-  background-color: springgreen;
-  width: 30px;
-  height: 30px;
+  width: 50%;
+  float: left;
 }
 
 #pizza {
   display: flex;
-  flex-direction: row;
-  width: 80%;
+  flex-direction: column;
+  width: 90%;
   margin: auto;
   background-color: #aaa;
   border: solid #000;
 }
 
 #toppings_row {
+  float: left;
   width: 50%;
-  margin: auto;
   text-align: center;
 }
 
+#special_pizzas {
+  display: flex;
+  flex-direction: row;
+  border: solid #000;
+  height: 100px;
+}
+
 .toppings {
-  height: 200px;
   border: solid 1px #000;
   display: flex;
 }
@@ -80,4 +77,34 @@ html {
   font-size: 48px;
   display: flex;
   border: solid 1px #000;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  // background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  text-align: center;
+}
+
+.topping_font {
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 30px;
+}
+
+.btn {
+  width: 20%;
+  background-color: lightblue;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
+  height: 40px;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
 }

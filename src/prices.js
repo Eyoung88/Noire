@@ -1,3 +1,5 @@
+var toppingsSelected = 0;
+
 //This will be used hide the sign when they dont have 5 topping but when they do we will modify it to show
 
 

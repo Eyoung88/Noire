@@ -38,11 +38,11 @@ Array.from(toppingArray).forEach(function (element) {
                 <img class="topping_resize" src="./images/Extra.png">
             </label>
             <label class="container">
-                <input class="img_radio normalBtn" type="radio" name="topping_amount_${element.id}" value="Normal" checked>
+                <input class="img_radio normalBtn" type="radio" name="topping_amount_${element.id}" value="Normal">
                 <img class="topping_resize" src="./images/Normal.png">
             </label>
             <label class="container">
-                <input class="img_radio noneBtn" type="radio" name="topping_amount_${element.id}" value="None">
+                <input class="img_radio noneBtn" type="radio" name="topping_amount_${element.id}" value="None" checked>
                 <img class="topping_resize" src="./images/None.png">
 
             </label>
@@ -69,63 +69,60 @@ Array.from(toppingArray).forEach(function (element) {
     counter++;
 });
 
+var extraBtn = document.getElementsByClassName("extraBtn");
+var normalBtn = document.getElementsByClassName("normalBtn");
+var noneBtn = document.getElementsByClassName("noneBtn");
+
 var totalPrice = 0;
-var dealPrice = 0;
 var price = 0;
 var toppingCounter = 0;
+var dealCost = 0;
 
-const addDoublePrice = (evt) => {
-    toppingCounter += 2;
-    if (evt.target.checked == true) {
-        price = 2;
-        document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
+const calculateTotalPrice = () => {
+    dealCost = 0;
+    toppingCounter = 0;
+    totalPrice = -1;
+    //add in pizza size cost here
+    let counter = 0;
+    Array.from(toppingArray).forEach(function(element){
+        if(extraBtn[counter].checked){
+            totalPrice += 2;
+            toppingCounter += 2;
+        }
+        else if(normalBtn[counter].checked){
+            totalPrice += 1;
+            toppingCounter += 1;
+        }
+        else if(noneBtn[counter].checked){
+            totalPrice += 0;
+        }
+        counter++;
+    });
+    if(toppingCounter >= 5){
+        dealCost = -1;
     }
+    else{
+        dealCost = 0;
+    }
+    totalPrice += dealCost;
+    if(totalPrice == -1){
+        totalPrice = 0;
+    }
+    //totalPrice += pizzaSizeCost
+    document.getElementById("total").innerHTML = "Your current price is: $" + totalPrice + ".00";
 }
+
 for (let iterator of document.getElementsByClassName('extraBtn')) {
-    iterator.addEventListener('click', addDoublePrice);
+    iterator.addEventListener('click', calculateTotalPrice)
 }
 
-totalPrice = price;
-
-const addPrice = (evt) => {
-    toppingCounter += 1;
-    if (evt.target.checked == true) {
-        totalPrice = price + 1;
-        document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
-    }
-
-}
 for (let iterator of document.getElementsByClassName('normalBtn')) {
-    iterator.addEventListener('click', addPrice);
+    iterator.addEventListener('click', calculateTotalPrice)
 }
 
-const subPrice = (evt) => {
-    toppingCounter -= 1;
-    if (evt.target.checked == true) {
-        if (totalPrice == 0) {
-            console.log("If price is 0", price);
-            price = 0;
-            document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
-        }
-        else {
-            totalPrice--;
-            price = 0;
-            console.log("If price is subtraced", price);
-            document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
-        }
-    }
-    if (evt.target.checked == false) {
-        totalPrice = price + 1;
-        document.getElementById("total").innerHTML = "Your current price is: " + totalPrice;
-    }
-}
 for (let iterator of document.getElementsByClassName('noneBtn')) {
-    iterator.addEventListener('click', subPrice);
+    iterator.addEventListener('click', calculateTotalPrice)
 }
-
-// if(toppingCounter == 5) {
-//     totalPrice - 3;
-// }
 
 
 const canvas = document.getElementById('pizza_view');
