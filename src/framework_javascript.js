@@ -1,6 +1,7 @@
 import { data } from './data';
 
 export const pizza = `
+<div id="pizzaTitleLab">Noire Pizza</div>
 <div id="special_pizzas"></div>
 <div">
     <div id="toppings_row">
@@ -15,7 +16,7 @@ export const pizza = `
         <div id="${data.toppings[8].name}" class="toppings"></div>
         <div id="${data.toppings[9].name}" class="toppings"></div>
     </div>
-    <div id="total">Your current price</div>
+    <div id="total">Your current price is $0.00</div>
     <div id="image_holder">
         <canvas id="pizza_view"></canvas>
         <div id="pizza_size">
@@ -37,6 +38,9 @@ export const pizza = `
                     <input class="size_radio" type="radio" name="pizza_size" value="small" />
                 </li>
             </ul>
+        </div>
+        <div id="specialImg">
+            <img src='./images/special_offer.png'>
         </div>
         <div id="add_to_order"><h2 class="topping_font">Add To Order</h2>
             <div id="myModal" class="modal">

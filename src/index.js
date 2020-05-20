@@ -66,7 +66,7 @@ Array.from(toppingArray).forEach(function (element) {
                 <img class="img_resize" src="./images/PizzaPortionLeft.png">
             </label>
             <label>
-                <input class="img_radio full_radio"" type="radio" name="pizza_portion_${element.id}" value="full" checked />
+                <input class="img_radio full_radio" type="radio" name="pizza_portion_${element.id}" value="full" checked/>
                 <img class="img_resize" src="./images/PizzaPortionFull.png">
             </label>
             <label>
@@ -82,9 +82,10 @@ Array.from(toppingArray).forEach(function (element) {
 var extraBtn = document.getElementsByClassName("extraBtn");
 var normalBtn = document.getElementsByClassName("normalBtn");
 var noneBtn = document.getElementsByClassName("noneBtn");
+var sizeList = document.getElementsByClassName("size_radio");
 
 var totalPrice = 0;
-var price = 0;
+var sizePrice = 0;
 var toppingCounter = 0;
 var dealCost = 0;
 
@@ -92,8 +93,27 @@ const calculateTotalPrice = () => {
     dealCost = 0;
     toppingCounter = 0;
     totalPrice = -1;
-    //add in pizza size cost here
+    Array.from(sizeList).forEach(function(element){
+        if(element.checked){
+            Array.from(data.prices).forEach(function(price){
+                if("x-large" == element.value){
+                    sizePrice = 20;
+                }
+                else if("large" == element.value){
+                    sizePrice = 15;
+                }
+                else if("medium" == element.value){
+                    sizePrice = 12;
+                }
+                else if("small" == element.value){
+                    sizePrice = 8;
+                }
+            })
+        }
+    })
     let counter = 0;
+    var img = document.getElementById('specialImg');
+    img.style.display = 'none';
     Array.from(toppingArray).forEach(function (element) {
         if (extraBtn[counter].checked) {
             totalPrice += 2;
@@ -110,6 +130,7 @@ const calculateTotalPrice = () => {
     });
     if (toppingCounter >= 5) {
         dealCost = -1;
+        img.style.display = 'block';
     }
     else {
         dealCost = 0;
@@ -118,10 +139,9 @@ const calculateTotalPrice = () => {
     if (totalPrice == -1) {
         totalPrice = 0;
     }
-    //totalPrice += pizzaSizeCost
+    totalPrice += sizePrice;
     document.getElementById("total").innerHTML = "Your current price is: $" + totalPrice + ".00";
 }
-
 
 for (let iterator of document.getElementsByClassName('extraBtn')) {
     iterator.addEventListener('click', calculateTotalPrice);
@@ -132,6 +152,11 @@ for (let iterator of document.getElementsByClassName('normalBtn')) {
 for (let iterator of document.getElementsByClassName('noneBtn')) {
     iterator.addEventListener('click', calculateTotalPrice);
 }
+for(let iterator of sizeList){
+    iterator.addEventListener('click', calculateTotalPrice);
+}
+
+calculateTotalPrice();
 
 const canvas = document.getElementById('pizza_view');
 
@@ -191,10 +216,15 @@ window.onclick = function (event) {
 }
 
 document.getElementById("special1").addEventListener('click', createSpecialPizza1);
+document.getElementById("special1").addEventListener('click', calculateTotalPrice);
 document.getElementById("special2").addEventListener('click', createSpecialPizza2);
+document.getElementById("special2").addEventListener('click', calculateTotalPrice);
 document.getElementById("special3").addEventListener('click', createSpecialPizza3);
+document.getElementById("special3").addEventListener('click', calculateTotalPrice);
 document.getElementById("special4").addEventListener('click', createSpecialPizza4);
+document.getElementById("special4").addEventListener('click', calculateTotalPrice);
 document.getElementById("special5").addEventListener('click', createSpecialPizza5);
+document.getElementById("special5").addEventListener('click', calculateTotalPrice);
 
 const extraRadioBtn = document.getElementsByClassName("extra_radio");
 const normalRadioBtn = document.getElementsByClassName("normal_radio");
