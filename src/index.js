@@ -39,7 +39,7 @@ Array.from(toppingArray).forEach(function (element) {
     // console.log(data.toppings[counter].name);
     element.innerHTML += `<div class="toppings_box">
     <div class="grid-container">
-        <div class="grid-item"><img src="./images/single_${data.toppings[counter].name}.png" ></div>
+        <div class="grid-item"><img src="./images/single_${data.toppings[counter].name}.png"></div>
         <div class="grid-item topping_font">${data.toppings[counter].name}</div>
         <div class="grid-item"></div> 
         <div class="grid-item"></div>
