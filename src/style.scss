@@ -12,6 +12,7 @@ html{
   justify-content: center;
   width: 50%;
   float: left;
+  height: 1300px;
 }
 
 #pizza {
@@ -215,4 +216,10 @@ html{
   margin: auto;
   padding: 10px;
   background-color: brown;
+}
+
+#pizza_view {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
