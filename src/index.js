@@ -1,7 +1,6 @@
 import './style.scss';
 import { pizza } from './framework_javascript';
 import { toppingArray } from './framework_javascript';
-import { isChecked } from './prices';
 import { data } from './data';
 
 document.getElementById('pizza').innerHTML = pizza;
@@ -14,7 +13,6 @@ let topping = [];
 
 const topping_loader = () => {
     data.toppings.forEach((topping1, idx) => {
-        // console.log(topping1.name, idx);
         topping[idx] = {};
         topping[idx].left = document.createElement('IMG');
         topping[idx].left.setAttribute('src', `./images/${topping1.file_prefix}_left.png`);
@@ -36,10 +34,9 @@ special_pizzas.innerHTML = `
 
 let counter = 0;
 Array.from(toppingArray).forEach(function (element) {
-    // console.log(data.toppings[counter].name);
     element.innerHTML += `<div class="toppings_box">
     <div class="grid-container">
-        <div class="grid-item topping_font">${data.toppings[counter].name}</div>
+        <div class="grid-item topping_font">${data.toppings[counter].display_name}</div>
         <div class="grid-item"></div>
         <div class="grid-item"></div>  
         <div class="grid-item"></div>
@@ -143,16 +140,7 @@ const calculateTotalPrice = () => {
     document.getElementById("total").innerHTML = "Your current price is: $" + totalPrice + ".00";
 }
 
-for (let iterator of document.getElementsByClassName('extraBtn')) {
-    iterator.addEventListener('click', calculateTotalPrice);
-}
-for (let iterator of document.getElementsByClassName('normalBtn')) {
-    iterator.addEventListener('click', calculateTotalPrice);
-}
-for (let iterator of document.getElementsByClassName('noneBtn')) {
-    iterator.addEventListener('click', calculateTotalPrice);
-}
-for(let iterator of sizeList){
+for(let iterator of document.querySelectorAll(".extraBtn,.normalBtn,.noneBtn,.size_radio")){
     iterator.addEventListener('click', calculateTotalPrice);
 }
 
@@ -216,15 +204,13 @@ window.onclick = function (event) {
 }
 
 document.getElementById("special1").addEventListener('click', createSpecialPizza1);
-document.getElementById("special1").addEventListener('click', calculateTotalPrice);
 document.getElementById("special2").addEventListener('click', createSpecialPizza2);
-document.getElementById("special2").addEventListener('click', calculateTotalPrice);
 document.getElementById("special3").addEventListener('click', createSpecialPizza3);
-document.getElementById("special3").addEventListener('click', calculateTotalPrice);
 document.getElementById("special4").addEventListener('click', createSpecialPizza4);
-document.getElementById("special4").addEventListener('click', calculateTotalPrice);
 document.getElementById("special5").addEventListener('click', createSpecialPizza5);
-document.getElementById("special5").addEventListener('click', calculateTotalPrice);
+for(let iterator of document.querySelectorAll("#special1,#special2,#special3,#special4,#special5")){
+    iterator.addEventListener('click', calculateTotalPrice)
+}
 
 const extraRadioBtn = document.getElementsByClassName("extra_radio");
 const normalRadioBtn = document.getElementsByClassName("normal_radio");
@@ -376,12 +362,12 @@ function createSpecialPizza1() {
     noneRadioBtn[9].checked = true;
     fullRadioBtn[9].checked = true;
 
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
     normalRadioBtn[2].checked = true;
     fullRadioBtn[2].checked = true;
     normalRadioBtn[6].checked = true;
     fullRadioBtn[6].checked = true;
+    normalRadioBtn[9].checked = true;
+    fullRadioBtn[9].checked = true;
 
     // console.log(document.getElementById(`topping_amount_${data.toppings[2].name}`));
     // console.log(document.getElementsByName(`topping_amount_${data.toppings[2].name}`)[checked]);
@@ -517,26 +503,3 @@ function createSpecialPizza5() {
     normalRadioBtn[8].checked = true;
     fullRadioBtn[8].checked = true;
 }
-
-
-
-// if (document.getElementById(`topping_amount_${data.toppings[0].name}`).value == 'Extra') {
-//     if(document.getElementById(`pizza_portion_${data.toppings[0].name}`).value == 'left') {
-//         anchovy_left = true;
-//         anchovy_right = false;
-//         console.log('It went into left')
-//     }
-//     if(document.getElementById(`pizza_portion_${data.toppings[0].name}`).value == 'right') {
-//         anchovy_left = false;
-//         anchovy_right = true;
-//         console.log('It went into right')
-//     }
-//     if(document.getElementById(`pizza_portion_${data.toppings[0].name}`).value == 'full') {
-//         anchovy_left = true;
-//         anchovy_right = true;
-//         console.log('It went into full')
-//     }
-// }
-
-// topping_amount_${element.id}
-// pizza_portion_${element.id}
