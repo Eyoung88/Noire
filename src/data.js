@@ -54,16 +54,16 @@ export let data = {
             "file_prefix": "pizza_canvas"
         },
         {
-            "name": "cheese",
-            "file_prefix": "cheese"
-        },
-        {
             "name": "bell_peppers",
             "file_prefix": "bell_peppers"
         },
         {
             "name": "olives",
             "file_prefix": "olives"
+        },
+        {
+            "name": "sausage",
+            "file_prefix": "sausage"
         }
     ],
     prebuilt2: [

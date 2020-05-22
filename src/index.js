@@ -27,11 +27,11 @@ topping_loader();
 
 const special_pizzas = document.getElementById("special_pizzas");
 special_pizzas.innerHTML = `
-<div id="special1" class="btn topping_font">Special 1</div>
-<div id="special2" class="btn topping_font">Special 2</div>
-<div id="special3" class="btn topping_font">Special 3</div>
-<div id="special4" class="btn topping_font">Special 4</div>
-<div id="special5" class="btn topping_font">Special 5</div>
+<div id="special1" class="btn topping_font">The Italian</div>
+<div id="special2" class="btn topping_font">Spicy Italian</div>
+<div id="special3" class="btn topping_font">Vegatarian</div>
+<div id="special4" class="btn topping_font">Meatzza</div>
+<div id="special5" class="btn topping_font">The Crime</div>
 `;
 
 let counter = 0;
@@ -376,8 +376,8 @@ function createSpecialPizza1() {
     noneRadioBtn[9].checked = true;
     fullRadioBtn[9].checked = true;
 
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
+    normalRadioBtn[9].checked = true;
+    fullRadioBtn[9].checked = true;
     normalRadioBtn[2].checked = true;
     fullRadioBtn[2].checked = true;
     normalRadioBtn[6].checked = true;
