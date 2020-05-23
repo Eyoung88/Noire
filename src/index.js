@@ -94,8 +94,8 @@ const calculateTotalPrice = () => {
     Array.from(sizeList).forEach(function(element){
         if(element.checked){
             Array.from(data.sizes).forEach(function(pizzaSize){
-                if(element.value == pizzaSize.size[0]){
-                    sizePrice = pizzaSize.size[1];
+                if(element.value == pizzaSize.size){
+                    sizePrice = pizzaSize.cost;
                 }
             })
         }
