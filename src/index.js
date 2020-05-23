@@ -90,20 +90,12 @@ const calculateTotalPrice = () => {
     dealCost = 0;
     toppingCounter = 0;
     totalPrice = -1;
+    sizePrice = 0;
     Array.from(sizeList).forEach(function(element){
         if(element.checked){
-            Array.from(data.prices).forEach(function(price){
-                if("x-large" == element.value){
-                    sizePrice = 20;
-                }
-                else if("large" == element.value){
-                    sizePrice = 15;
-                }
-                else if("medium" == element.value){
-                    sizePrice = 12;
-                }
-                else if("small" == element.value){
-                    sizePrice = 8;
+            Array.from(data.sizes).forEach(function(pizzaSize){
+                if(element.value == pizzaSize.size[0]){
+                    sizePrice = pizzaSize.size[1];
                 }
             })
         }
@@ -137,7 +129,7 @@ const calculateTotalPrice = () => {
         totalPrice = 0;
     }
     totalPrice += sizePrice;
-    document.getElementById("total").innerHTML = "Your current price is: $" + totalPrice + ".00";
+    document.getElementById("total").innerHTML = "Your current total is: $" + totalPrice + ".00";
 }
 
 for(let iterator of document.querySelectorAll(".extraBtn,.normalBtn,.noneBtn,.size_radio")){

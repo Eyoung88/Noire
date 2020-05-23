@@ -1,9 +1,17 @@
 export let data = {
-    prices: [
-        { "x-large": 20 },
-        { 'large': 15 },
-        { 'medium': 12 },
-        { 'small': 8 }
+    sizes: [
+        {"size": [
+            "x-large", 20
+        ]},
+        {"size": [
+            "large", 15
+        ]},
+        {"size": [
+            "medium", 12
+        ]},
+        {"size": [
+            "small", 8
+        ]}
     ],
     toppings: [
         {
