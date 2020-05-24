@@ -70,98 +70,58 @@ export let data = {
         }
     ],
     prebuilt1: [
-        { 'large': 15 },
         {
-            "name": "cheese",
-            "file_prefix": "cheese"
-        },
-        {
-            "name": "bell_peppers",
-            "file_prefix": "bell_peppers"
-        },
-        {
-            "name": "olives",
-            "file_prefix": "olives"
+            "size": "large",
+            "toppings": [
+                "cheese",
+                "bell_peppers",
+                "olives"
+            ]
         }
     ],
     prebuilt2: [
-        { 'small': 8 },
         {
-            "name": "cheese",
-            "file_prefix": "cheese"
-        },
-        {
-            "name": "ham",
-            "file_prefix": "ham"
-        },
-        {
-            "name": "jalepenos",
-            "file_prefix": "jalepenos"
-        },
-        {
-            "name": "anchovy",
-            "file_prefix": "anchovy"
+            "size": "small",
+            "toppings": [
+                "cheese",
+                "ham",
+                "jalepenos",
+                "anchovy"
+            ]
         }
     ],
     prebuilt3: [
-        { 'medium': 12 },
         {
-            "name": "bell_peppers",
-            "file_prefix": "bell_peppers"
-        },
-        {
-            "name": "jalepenos",
-            "file_prefix": "jalepenos"
-        },
-        {
-            "name": "olives",
-            "file_prefix": "olives"
-        },
-        {
-            "name": "pineapple",
-            "file_prefix": "pineapple"
+            "size": "medium",
+            "toppings": [
+                "bell_peppers",
+                "jalepenos",
+                "olives",
+                "pineapple"
+            ]
         }
     ],
     prebuilt4: [
-        { "x-large": 20 },
         {
-            "name": "cheese",
-            "file_prefix": "cheese"
-        },
-        {
-            "name": "ham",
-            "file_prefix": "ham"
-        },
-        {
-            "name": "anchovy",
-            "file_prefix": "anchovy"
-        },
-        {
-            "name": "bacon",
-            "file_prefix": "bacon"
-        },
-        {
-            "name": "sausage",
-            "file_prefix": "sausage"
-        },
-        {
-            "name": "pepperoni",
-            "file_prefix": "pepperoni"
+            "size": "x-large",
+            "toppings": [
+                "cheese",
+                "ham",
+                "anchovy",
+                "bacon",
+                "sausage",
+                "pepperoni"
+            ]
         }
     ],
     prebuilt5: [
-        { 'medium': 12 },
         {
-            "name": "cheese",
-            "file_prefix": "cheese"
-        },
-        {
-            "name": "ham",
-            "file_prefix": "ham"
-        },
-        {
-            "name": "pineapple",
-            "file_prefix": "pineapple"
+            "size": "medium",
+            "toppings": [
+                "cheese",
+                "ham",
+                "pineapple"
+            ]
         }
     ]
 }

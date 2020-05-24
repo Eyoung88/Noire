@@ -195,11 +195,11 @@ window.onclick = function (event) {
     }
 }
 
-document.getElementById("special1").addEventListener('click', createSpecialPizza1);
-document.getElementById("special2").addEventListener('click', createSpecialPizza2);
-document.getElementById("special3").addEventListener('click', createSpecialPizza3);
-document.getElementById("special4").addEventListener('click', createSpecialPizza4);
-document.getElementById("special5").addEventListener('click', createSpecialPizza5);
+document.getElementById("special1").addEventListener('click', function(){createSpecialPizza(data.prebuilt1[0])});
+document.getElementById("special2").addEventListener('click', function(){createSpecialPizza(data.prebuilt2[0])});
+document.getElementById("special3").addEventListener('click', function(){createSpecialPizza(data.prebuilt3[0])});
+document.getElementById("special4").addEventListener('click', function(){createSpecialPizza(data.prebuilt4[0])});
+document.getElementById("special5").addEventListener('click', function(){createSpecialPizza(data.prebuilt5[0])});
 for(let iterator of document.querySelectorAll("#special1,#special2,#special3,#special4,#special5")){
     iterator.addEventListener('click', calculateTotalPrice)
 }
@@ -332,7 +332,7 @@ const loop = () => {
 
 setInterval(loop, 100);
 
-function createSpecialPizza1() {
+function resetAllToppings() {
     noneRadioBtn[0].checked = true;
     fullRadioBtn[0].checked = true;
     noneRadioBtn[1].checked = true;
@@ -352,146 +352,23 @@ function createSpecialPizza1() {
     noneRadioBtn[8].checked = true;
     fullRadioBtn[8].checked = true;
     noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    normalRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    normalRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    // console.log(document.getElementById(`topping_amount_${data.toppings[2].name}`));
-    // console.log(document.getElementsByName(`topping_amount_${data.toppings[2].name}`)[checked]);
-
-}
-
-function createSpecialPizza2() {
-    noneRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    noneRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    noneRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    noneRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    noneRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    noneRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    noneRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    noneRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    noneRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-    noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    normalRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    normalRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-}
-
-function createSpecialPizza3() {
-    noneRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    noneRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    noneRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    noneRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    noneRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    noneRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    noneRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    noneRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    noneRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-    noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    normalRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    normalRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    normalRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-}
-
-function createSpecialPizza4() {
-    noneRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    noneRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    noneRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    noneRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    noneRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    noneRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    noneRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    noneRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    noneRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-    noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    normalRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    normalRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    normalRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    normalRadioBtn[9].checked = true;
     fullRadioBtn[9].checked = true;
 }
 
-function createSpecialPizza5() {
-    noneRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    noneRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    noneRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    noneRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    noneRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    noneRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    noneRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    noneRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    noneRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-    noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    normalRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    normalRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
+function createSpecialPizza(prebuiltObject) {
+    let prebuiltPizza = prebuiltObject;
+    resetAllToppings();
+    let counter = 0;
+    Array.from(sizeList).forEach(function(element){
+        if(element.value == prebuiltPizza.size){
+            element.checked = true;
+        }
+    })
+    data.toppings.forEach(function(listTopping){
+        if(prebuiltPizza.toppings.includes(listTopping.name)){
+            normalRadioBtn[counter].checked = true;
+            fullRadioBtn[counter].checked = true;
+        }
+        counter++;
+    })
 }
