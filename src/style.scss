@@ -66,11 +66,11 @@ html {
   height: 0;
 }
 
-.img_radio[type="radio"] + img {
+.img_radio[type="radio"]+img {
   cursor: pointer;
 }
 
-.img_radio[type="radio"]:checked + img {
+.img_radio[type="radio"]:checked+img {
   background-color: rgba(251, 6, 6, 0.541);
 }
 
@@ -231,4 +231,43 @@ html {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+}
+
+@media all and (max-width: 400px) {
+  #special_pizzas {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .btn {
+    width: 90%;
+  }
+
+  .size_options_list {
+    flex-direction: column;
+
+    li {
+      padding: 10px 0;
+      margin-left: -50px;
+      width: 150px;
+
+      label {
+        align-self: center;
+      }
+    }
+  }
+
+  #toppings_row{
+    float: none;
+    width: 100%;
+  }
+
+  .grid-container{
+    display: flex;
+    width: 300px;
+    align-content: center;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+  }
 }

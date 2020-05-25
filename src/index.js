@@ -202,7 +202,7 @@ var span = document.getElementsByClassName("close")[0];
 
 function addToOrder() {
     modal.style.display = "block";
-    document.getElementById('total_amount').innerHTML = `The total cost of your pizza was $${totalPrice}.00`;
+    document.getElementById('total_amount').innerHTML = `The total cost of your pizza was ${totalPrice}.00`;
 }
 
 span.onclick = function () {
