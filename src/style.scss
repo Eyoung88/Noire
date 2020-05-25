@@ -270,4 +270,17 @@ html {
     // justify-content: center;
     align-items: center;
   }
+
+  #total{
+    text-align: center;
+    font-size: xx-large;
+  }
+
+  #pizza_view{
+    position: relative;
+  }
+
+  #add_to_order{
+    width: 80%;
+  }
 }

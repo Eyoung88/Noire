@@ -18,9 +18,11 @@ const topping_loader = () => {
         topping[idx] = {};
         topping[idx].left = document.createElement('IMG');
         topping[idx].left.setAttribute('src', `./images/${topping1.file_prefix}_left.png`);
+        topping[idx].left.className = "toppingImg";
 
         topping[idx].right = document.createElement('IMG');
         topping[idx].right.setAttribute('src', `./images/${topping1.file_prefix}_right.png`);
+        topping[idx].right.className = "toppingImg";
     });
 };
 topping_loader();
@@ -540,3 +542,25 @@ function createSpecialPizza5() {
 
 // topping_amount_${element.id}
 // pizza_portion_${element.id}
+
+var toppingImages = document.getElementsByClassName("toppingImg");
+
+const setCanvasSize = () => {
+    console.log(window.innerWidth)
+    if(window.width <= 700){
+        var ratio = canvas.height/canvas.width;
+        canvas.width = 400;
+        canvas.height = canvas.width * ratio;
+        toppingImages.forEach(function(image){
+            image.width = 400;
+            image.height = image.width * ratio;
+        })
+        console.log("mobile");
+    }
+    else{
+        console.log("desktop")
+    }
+}
+
+window.addEventListener("resize", setCanvasSize)
+window.addEventListener("onload", setCanvasSize)
