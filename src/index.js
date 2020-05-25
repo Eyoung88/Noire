@@ -9,6 +9,8 @@ document.getElementById('pizza').innerHTML = pizza;
 const image_holder = document.getElementById('image_holder');
 const pizza_image = document.createElement('IMG');
 pizza_image.setAttribute('src', './images/pizza_canvas.png');
+// pizza_image.setAttribute('class', "toppingImg");
+pizza_image.classList.add("toppingImg");
 
 let topping = [];
 
@@ -18,11 +20,13 @@ const topping_loader = () => {
         topping[idx] = {};
         topping[idx].left = document.createElement('IMG');
         topping[idx].left.setAttribute('src', `./images/${topping1.file_prefix}_left.png`);
-        topping[idx].left.className = "toppingImg";
+        // topping[idx].left.setAttribute('class', "toppingImg");
+        topping[idx].left.classList.add("toppingImg");
 
         topping[idx].right = document.createElement('IMG');
         topping[idx].right.setAttribute('src', `./images/${topping1.file_prefix}_right.png`);
-        topping[idx].right.className = "toppingImg";
+        // topping[idx].right.setAttribute('class', "toppingImg");
+        topping[idx].right.classList.add("toppingImg");
     });
 };
 topping_loader();
@@ -551,6 +555,7 @@ const setCanvasSize = () => {
         var ratio = canvas.style.height/canvas.style.width;
         canvas.style.width = 400;
         canvas.style.height = canvas.style.width * ratio;
+        console.log(Array.from(toppingImages))
         Array.from(toppingImages).forEach(function(image){
             image.style.width = 400;
             image.style.height = image.style.width * ratio;
