@@ -547,13 +547,13 @@ var toppingImages = document.getElementsByClassName("toppingImg");
 
 const setCanvasSize = () => {
     console.log(window.innerWidth)
-    if(window.width <= 700){
-        var ratio = canvas.height/canvas.width;
-        canvas.width = 400;
-        canvas.height = canvas.width * ratio;
-        toppingImages.forEach(function(image){
-            image.width = 400;
-            image.height = image.width * ratio;
+    if(window.innerWidth <= 700){
+        var ratio = canvas.style.height/canvas.style.width;
+        canvas.style.width = 400;
+        canvas.style.height = canvas.style.width * ratio;
+        Array.from(toppingImages).forEach(function(image){
+            image.style.width = 400;
+            image.style.height = image.style.width * ratio;
         })
         console.log("mobile");
     }
