@@ -10,7 +10,8 @@ const image_holder = document.getElementById('image_holder');
 const pizza_image = document.createElement('IMG');
 pizza_image.setAttribute('src', './images/pizza_canvas.png');
 // pizza_image.setAttribute('class', "toppingImg");
-pizza_image.classList.add("toppingImg");
+// pizza_image.classList.add("toppingImg");
+pizza_image.className = "toppingImg";
 
 let topping = [];
 
@@ -21,12 +22,14 @@ const topping_loader = () => {
         topping[idx].left = document.createElement('IMG');
         topping[idx].left.setAttribute('src', `./images/${topping1.file_prefix}_left.png`);
         // topping[idx].left.setAttribute('class', "toppingImg");
-        topping[idx].left.classList.add("toppingImg");
+        // topping[idx].left.classList.add("toppingImg");
+        topping[idx].left.className = "toppingImg";
 
         topping[idx].right = document.createElement('IMG');
         topping[idx].right.setAttribute('src', `./images/${topping1.file_prefix}_right.png`);
         // topping[idx].right.setAttribute('class', "toppingImg");
-        topping[idx].right.classList.add("toppingImg");
+        // topping[idx].right.classList.add("toppingImg");
+        topping[idx].right.className = "toppingImg";
     });
 };
 topping_loader();
@@ -547,24 +550,25 @@ function createSpecialPizza5() {
 // topping_amount_${element.id}
 // pizza_portion_${element.id}
 
-var toppingImages = document.getElementsByClassName("toppingImg");
-
 const setCanvasSize = () => {
-    console.log(window.innerWidth)
-    if(window.innerWidth <= 700){
-        var ratio = canvas.style.height/canvas.style.width;
-        canvas.style.width = 400;
-        canvas.style.height = canvas.style.width * ratio;
-        console.log(Array.from(toppingImages))
-        Array.from(toppingImages).forEach(function(image){
-            image.style.width = 400;
-            image.style.height = image.style.width * ratio;
-        })
-        console.log("mobile");
-    }
-    else{
-        console.log("desktop")
-    }
+    var toppingImages = document.getElementsByClassName("toppingImg");
+    console.log(toppingImages);
+    console.log(Array.from(toppingImages));
+    console.log(window.innerWidth);
+    var ratio = canvas.style.height/canvas.style.width;
+    canvas.width = window.innerWidth;
+    canvas.height = canvas.width * ratio;
+    Array.from(toppingImages).forEach(function(image){
+        console.log(image)
+        image.style.width = 400;
+        image.style.height = image.style.width * ratio;
+    })
+    console.log("mobile");
+    // if(window.innerWidth <= 700){
+    // }
+    // else{
+    //     console.log("desktop")
+    // }
 }
 
 window.addEventListener("resize", setCanvasSize)
