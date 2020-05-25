@@ -39,7 +39,7 @@ Array.from(toppingArray).forEach(function (element) {
     // console.log(data.toppings[counter].name);
     element.innerHTML += `<div class="toppings_box">
     <div class="grid-container">
-        <div class="grid-item"><img src="./images/single_${data.toppings[counter].name}.png"></div>
+        <div class="grid-item"><img src="./images/single_${data.toppings[counter].file_prefix}.png" width="80" height="60"></div>
         <div class="grid-item topping_font">${data.toppings[counter].name}</div>
         <div class="grid-item"></div> 
         <div class="grid-item"></div>
@@ -319,35 +319,35 @@ const loop = () => {
 
     for (let i = 0; i < extraRadioBtn.length; i++) {
         if (extraRadioBtn[i].checked) {
-            eval(data.toppings[i].name + "_display = true;");
+            eval(data.toppings[i].file_prefix + "_display = true;");
         }
     }
     for (let i = 0; i < normalRadioBtn.length; i++) {
         if (normalRadioBtn[i].checked) {
-            eval(data.toppings[i].name + "_display = true;");
+            eval(data.toppings[i].file_prefix + "_display = true;");
         }
     }
     for (let i = 0; i < noneRadioBtn.length; i++) {
         if (noneRadioBtn[i].checked) {
-            eval(data.toppings[i].name + "_display = false;");
+            eval(data.toppings[i].file_prefix + "_display = false;");
         }
     }
     for (let i = 0; i < leftRadioBtn.length; i++) {
         if (leftRadioBtn[i].checked) {
-            eval(data.toppings[i].name + "_left = true;");
-            eval(data.toppings[i].name + "_right = false;");
+            eval(data.toppings[i].file_prefix + "_left = true;");
+            eval(data.toppings[i].file_prefix + "_right = false;");
         }
     }
     for (let i = 0; i < fullRadioBtn.length; i++) {
         if (fullRadioBtn[i].checked) {
-            eval(data.toppings[i].name + "_left = true;");
-            eval(data.toppings[i].name + "_right = true;");
+            eval(data.toppings[i].file_prefix + "_left = true;");
+            eval(data.toppings[i].file_prefix + "_right = true;");
         }
     }
     for (let i = 0; i < rightRadioBtn.length; i++) {
         if (rightRadioBtn[i].checked) {
-            eval(data.toppings[i].name + "_left = false;");
-            eval(data.toppings[i].name + "_right = true;");
+            eval(data.toppings[i].file_prefix + "_left = false;");
+            eval(data.toppings[i].file_prefix + "_right = true;");
         }
     }
 };

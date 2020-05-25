@@ -7,43 +7,43 @@ export let data = {
     ],
     toppings: [
         {
-            "name": "anchovy",
+            "name": "Anchovy",
             "file_prefix": "anchovy"
         },
         {
-            "name": "bacon",
+            "name": "Bacon",
             "file_prefix": "bacon"
         },
         {
-            "name": "bell_peppers",
+            "name": "Bell Peppers",
             "file_prefix": "bell_peppers"
         },
         {
-            "name": "cheese",
+            "name": "Cheese",
             "file_prefix": "cheese"
         },
         {
-            "name": "ham",
+            "name": "Ham",
             "file_prefix": "ham"
         },
         {
-            "name": "jalepenos",
+            "name": "Jalapenos",
             "file_prefix": "jalepenos"
         },
         {
-            "name": "olives",
+            "name": "Olives",
             "file_prefix": "olives"
         },
         {
-            "name": "pepperoni",
+            "name": "Pepperoni",
             "file_prefix": "pepperoni"
         },
         {
-            "name": "pineapple",
+            "name": "Pineapple",
             "file_prefix": "pineapple"
         },
         {
-            "name": "sausage",
+            "name": "Sausage",
             "file_prefix": "sausage"
         }
     ],
