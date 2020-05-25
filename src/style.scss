@@ -131,7 +131,7 @@ html{
 .size_options_list {
   list-style-type: none;
   width: 30%;
-  margin: auto;
+  margin: 0 auto;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -160,11 +160,20 @@ html{
   font-size: 48px;
   display: flex;
   border: solid 1px #000;
+  justify-content: center;
+  padding: 20px;
 }
 
 #specialImg {
-  margin-top: 115px;
-  margin-left: 160px;
+  position: relative;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  margin: {
+    top: 20px;
+    bottom: 20px;
+  }
 }
 
 #pizzaTitleLab {
@@ -213,6 +222,14 @@ html{
   text-align: center;
   width: 30%;
   margin: auto;
+  margin-top:20px;
   padding: 10px;
   background-color: brown;
+}
+
+#pizza_view{
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }

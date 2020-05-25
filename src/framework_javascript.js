@@ -16,7 +16,7 @@ export const pizza = `
         <div id="${data.toppings[8].name}" class="toppings"></div>
         <div id="${data.toppings[9].name}" class="toppings"></div>
     </div>
-    <div id="total">Your current price is $0.00</div>
+    <div id="total">Your current total is $0.00</div>
     <div id="image_holder">
         <canvas id="pizza_view"></canvas>
         <div id="pizza_size">
