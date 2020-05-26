@@ -1,5 +1,5 @@
-html{
-    background-color: #eee;
+html {
+  background-color: #eee;
 }
 
 .column {
@@ -12,6 +12,7 @@ html{
   justify-content: center;
   width: 50%;
   float: left;
+  height: 1300px;
 }
 
 #pizza {
@@ -65,11 +66,11 @@ html{
   height: 0;
 }
 
-.img_radio[type="radio"] + img {
+.img_radio[type="radio"]+img {
   cursor: pointer;
 }
 
-.img_radio[type="radio"]:checked + img {
+.img_radio[type="radio"]:checked+img {
   background-color: rgba(251, 6, 6, 0.541);
 }
 
@@ -106,10 +107,11 @@ html{
 }
 
 .topping_font {
-  font-family: 'Balsamiq Sans', cursive;
+  font-family: "Balsamiq Sans", cursive;
   font-size: 30px;
 }
 
+//for the special pizza options
 .btn {
   width: 20%;
   background-color: rgba(251, 6, 6, 0.541);
@@ -134,26 +136,34 @@ html{
   margin: 0 auto;
   padding: 30px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .size_options_list li {
+  // background-color: rgba(251, 6, 6, 0.541);
   float: left;
   margin: 0 5px 0 0;
-  width: 100px;
-  height: 40px;
   position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .size_options_list label {
+  background-color: rgba(251, 6, 6, 0.541);
+  display: flex;
+  margin: auto;
   padding: 5px;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   cursor: pointer;
   z-index: 90;
+  width: 150px;
+  height: 25px;
 }
 
 .size_options_list label:hover {
-  background: #DDD;
+  background-color: rgb(250, 60, 80);
 }
 
 #total {
@@ -179,7 +189,7 @@ html{
 #pizzaTitleLab {
   display: flex;
   font-size: 50px;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .modal {
@@ -192,8 +202,8 @@ html{
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -227,9 +237,73 @@ html{
   background-color: brown;
 }
 
-#pizza_view{
+#pizza_view {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   display: block;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+@media all and (max-width: 400px) {
+  #special_pizzas {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .btn {
+    width: 90%;
+  }
+
+  .size_options_list {
+    flex-direction: column;
+
+    li {
+      padding: 10px 0;
+      margin-left: -50px;
+      width: 150px;
+
+      label {
+        align-self: center;
+      }
+    }
+  }
+
+  #toppings_row{
+    float: none;
+    width: 100%;
+  }
+
+  .grid-container{
+    display: flex;
+    width: 300px;
+    align-content: center;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+  }
+
+  #total{
+    text-align: center;
+    font-size: xx-large;
+  }
+
+  #pizza_view{
+    position: relative;
+  }
+
+  #add_to_order{
+    width: 80%;
+  }
+
+  #image_holder{
+    height: 850px;
+  }
+
+  #add_to_order{
+    width: 80%;
+    margin-left: 90px;
+  }
 }
