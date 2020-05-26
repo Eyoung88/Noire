@@ -133,8 +133,8 @@ html {
 .size_options_list {
   list-style-type: none;
   width: 30%;
-  margin: auto;
-  padding: 25px;
+  margin: 0 auto;
+  padding: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -170,11 +170,20 @@ html {
   font-size: 48px;
   display: flex;
   border: solid 1px #000;
+  justify-content: center;
+  padding: 20px;
 }
 
 #specialImg {
-  margin-top: 115px;
-  margin-left: 160px;
+  position: relative;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  margin: {
+    top: 20px;
+    bottom: 20px;
+  }
 }
 
 #pizzaTitleLab {
@@ -223,6 +232,7 @@ html {
   text-align: center;
   width: 30%;
   margin: auto;
+  margin-top:20px;
   padding: 10px;
   background-color: brown;
 }
@@ -231,6 +241,10 @@ html {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 @media all and (max-width: 400px) {
@@ -282,5 +296,14 @@ html {
 
   #add_to_order{
     width: 80%;
+  }
+
+  #image_holder{
+    height: 850px;
+  }
+
+  #add_to_order{
+    width: 80%;
+    margin-left: 90px;
   }
 }
