@@ -1,7 +1,6 @@
 import './style.scss';
 import { pizza } from './framework_javascript';
 import { toppingArray } from './framework_javascript';
-import { isChecked } from './prices';
 import { data } from './data';
 
 document.getElementById('pizza').innerHTML = pizza;
@@ -9,34 +8,41 @@ document.getElementById('pizza').innerHTML = pizza;
 const image_holder = document.getElementById('image_holder');
 const pizza_image = document.createElement('IMG');
 pizza_image.setAttribute('src', './images/pizza_canvas.png');
+// pizza_image.setAttribute('class', "toppingImg");
+// pizza_image.classList.add("toppingImg");
+// pizza_image.className = "toppingImg";
 
 let topping = [];
 
 const topping_loader = () => {
     data.toppings.forEach((topping1, idx) => {
-        // console.log(topping1.name, idx);
         topping[idx] = {};
         topping[idx].left = document.createElement('IMG');
         topping[idx].left.setAttribute('src', `./images/${topping1.file_prefix}_left.png`);
+        // topping[idx].left.setAttribute('class', "toppingImg");
+        // topping[idx].left.classList.add("toppingImg");
+        // topping[idx].left.className = "toppingImg";
 
         topping[idx].right = document.createElement('IMG');
         topping[idx].right.setAttribute('src', `./images/${topping1.file_prefix}_right.png`);
+        // topping[idx].right.setAttribute('class', "toppingImg");
+        // topping[idx].right.classList.add("toppingImg");
+        // topping[idx].right.className = "toppingImg";
     });
 };
 topping_loader();
 
 const special_pizzas = document.getElementById("special_pizzas");
 special_pizzas.innerHTML = `
-<div id="special1" class="btn topping_font">Special 1</div>
-<div id="special2" class="btn topping_font">Special 2</div>
-<div id="special3" class="btn topping_font">Special 3</div>
-<div id="special4" class="btn topping_font">Special 4</div>
-<div id="special5" class="btn topping_font">Special 5</div>
+<div id="special1" class="btn topping_font">The Italian</div>
+<div id="special2" class="btn topping_font">Spicy Italian</div>
+<div id="special3" class="btn topping_font">Vegatarian</div>
+<div id="special4" class="btn topping_font">Meatzza</div>
+<div id="special5" class="btn topping_font">The Crime</div>
 `;
 
 let counter = 0;
 Array.from(toppingArray).forEach(function (element) {
-    // console.log(data.toppings[counter].name);
     element.innerHTML += `<div class="toppings_box">
     <div class="grid-container">
         <div class="grid-item"><img src="./images/single_${data.toppings[counter].file_prefix}.png" width="80" height="60"></div>
@@ -93,20 +99,12 @@ const calculateTotalPrice = () => {
     dealCost = 0;
     toppingCounter = 0;
     totalPrice = -1;
+    sizePrice = 0;
     Array.from(sizeList).forEach(function(element){
         if(element.checked){
-            Array.from(data.prices).forEach(function(price){
-                if("x-large" == element.value){
-                    sizePrice = 20;
-                }
-                else if("large" == element.value){
-                    sizePrice = 15;
-                }
-                else if("medium" == element.value){
-                    sizePrice = 12;
-                }
-                else if("small" == element.value){
-                    sizePrice = 8;
+            Array.from(data.sizes).forEach(function(pizzaSize){
+                if(element.value == pizzaSize.size){
+                    sizePrice = pizzaSize.cost;
                 }
             })
         }
@@ -140,19 +138,10 @@ const calculateTotalPrice = () => {
         totalPrice = 0;
     }
     totalPrice += sizePrice;
-    document.getElementById("total").innerHTML = "Your current price is: $" + totalPrice + ".00";
+    document.getElementById("total").innerHTML = "Your current total is: $" + totalPrice + ".00";
 }
 
-for (let iterator of document.getElementsByClassName('extraBtn')) {
-    iterator.addEventListener('click', calculateTotalPrice);
-}
-for (let iterator of document.getElementsByClassName('normalBtn')) {
-    iterator.addEventListener('click', calculateTotalPrice);
-}
-for (let iterator of document.getElementsByClassName('noneBtn')) {
-    iterator.addEventListener('click', calculateTotalPrice);
-}
-for(let iterator of sizeList){
+for(let iterator of document.querySelectorAll(".extraBtn,.normalBtn,.noneBtn,.size_radio")){
     iterator.addEventListener('click', calculateTotalPrice);
 }
 
@@ -202,7 +191,7 @@ var span = document.getElementsByClassName("close")[0];
 
 function addToOrder() {
     modal.style.display = "block";
-    document.getElementById('total_amount').innerHTML = `The total cost of your pizza was $${totalPrice}.00`;
+    document.getElementById('total_amount').innerHTML = `The total cost of your pizza was ${totalPrice}.00`;
 }
 
 span.onclick = function () {
@@ -215,16 +204,14 @@ window.onclick = function (event) {
     }
 }
 
-document.getElementById("special1").addEventListener('click', createSpecialPizza1);
-document.getElementById("special1").addEventListener('click', calculateTotalPrice);
-document.getElementById("special2").addEventListener('click', createSpecialPizza2);
-document.getElementById("special2").addEventListener('click', calculateTotalPrice);
-document.getElementById("special3").addEventListener('click', createSpecialPizza3);
-document.getElementById("special3").addEventListener('click', calculateTotalPrice);
-document.getElementById("special4").addEventListener('click', createSpecialPizza4);
-document.getElementById("special4").addEventListener('click', calculateTotalPrice);
-document.getElementById("special5").addEventListener('click', createSpecialPizza5);
-document.getElementById("special5").addEventListener('click', calculateTotalPrice);
+document.getElementById("special1").addEventListener('click', function(){createSpecialPizza(data.prebuilt1[0])});
+document.getElementById("special2").addEventListener('click', function(){createSpecialPizza(data.prebuilt2[0])});
+document.getElementById("special3").addEventListener('click', function(){createSpecialPizza(data.prebuilt3[0])});
+document.getElementById("special4").addEventListener('click', function(){createSpecialPizza(data.prebuilt4[0])});
+document.getElementById("special5").addEventListener('click', function(){createSpecialPizza(data.prebuilt5[0])});
+for(let iterator of document.querySelectorAll("#special1,#special2,#special3,#special4,#special5")){
+    iterator.addEventListener('click', calculateTotalPrice)
+}
 
 const extraRadioBtn = document.getElementsByClassName("extra_radio");
 const normalRadioBtn = document.getElementsByClassName("normal_radio");
@@ -233,87 +220,90 @@ const leftRadioBtn = document.getElementsByClassName("left_radio");
 const fullRadioBtn = document.getElementsByClassName("full_radio");
 const rightRadioBtn = document.getElementsByClassName("right_radio");
 
+var imageWidth = 624;
+var imageHeight = 620;
+
 const loop = () => {
     ctx.clearRect(0, 0, 0, 0);
-    ctx.drawImage(pizza_image, 0, 0);
+    ctx.drawImage(pizza_image, 0, 0, imageWidth, imageHeight);
     if (anchovy_display) {
         if (anchovy_left) {
-            ctx.drawImage(topping[0].left, 0, 0);
+            ctx.drawImage(topping[0].left, 0, 0, imageWidth, imageHeight);
         }
         if (anchovy_right) {
-            ctx.drawImage(topping[0].right, 0, 0);
+            ctx.drawImage(topping[0].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (bacon_display) {
         if (bacon_left) {
-            ctx.drawImage(topping[1].left, 0, 0);
+            ctx.drawImage(topping[1].left, 0, 0, imageWidth, imageHeight);
         }
         if (bacon_right) {
-            ctx.drawImage(topping[1].right, 0, 0);
+            ctx.drawImage(topping[1].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (bell_peppers_display) {
         if (bell_peppers_left) {
-            ctx.drawImage(topping[2].left, 0, 0);
+            ctx.drawImage(topping[2].left, 0, 0, imageWidth, imageHeight);
         }
         if (bell_peppers_right) {
-            ctx.drawImage(topping[2].right, 0, 0);
+            ctx.drawImage(topping[2].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (cheese_display) {
         if (cheese_left) {
-            ctx.drawImage(topping[3].left, 0, 0);
+            ctx.drawImage(topping[3].left, 0, 0, imageWidth, imageHeight);
         }
         if (cheese_right) {
-            ctx.drawImage(topping[3].right, 0, 0);
+            ctx.drawImage(topping[3].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (ham_display) {
         if (ham_left) {
-            ctx.drawImage(topping[4].left, 0, 0);
+            ctx.drawImage(topping[4].left, 0, 0, imageWidth, imageHeight);
         }
         if (ham_right) {
-            ctx.drawImage(topping[4].right, 0, 0);
+            ctx.drawImage(topping[4].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (jalepenos_display) {
         if (jalepenos_left) {
-            ctx.drawImage(topping[5].left, 0, 0);
+            ctx.drawImage(topping[5].left, 0, 0, imageWidth, imageHeight);
         }
         if (jalepenos_right) {
-            ctx.drawImage(topping[5].right, 0, 0);
+            ctx.drawImage(topping[5].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (olives_display) {
         if (olives_left) {
-            ctx.drawImage(topping[6].left, 0, 0);
+            ctx.drawImage(topping[6].left, 0, 0, imageWidth, imageHeight);
         }
         if (olives_right) {
-            ctx.drawImage(topping[6].right, 0, 0);
+            ctx.drawImage(topping[6].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (pepperoni_display) {
         if (pepperoni_left) {
-            ctx.drawImage(topping[7].left, 0, 0);
+            ctx.drawImage(topping[7].left, 0, 0, imageWidth, imageHeight);
         }
         if (pepperoni_right) {
-            ctx.drawImage(topping[7].right, 0, 0);
+            ctx.drawImage(topping[7].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (pineapple_display) {
         if (pineapple_left) {
-            ctx.drawImage(topping[8].left, 0, 0);
+            ctx.drawImage(topping[8].left, 0, 0, imageWidth, imageHeight);
         }
         if (pineapple_right) {
-            ctx.drawImage(topping[8].right, 0, 0);
+            ctx.drawImage(topping[8].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (sausage_display) {
         if (sausage_left) {
-            ctx.drawImage(topping[9].left, 0, 0);
+            ctx.drawImage(topping[9].left, 0, 0, imageWidth, imageHeight);
         }
         if (sausage_right) {
-            ctx.drawImage(topping[9].right, 0, 0);
+            ctx.drawImage(topping[9].right, 0, 0, imageWidth, imageHeight);
         }
     }
 
@@ -354,7 +344,7 @@ const loop = () => {
 
 setInterval(loop, 100);
 
-function createSpecialPizza1() {
+function resetAllToppings() {
     noneRadioBtn[0].checked = true;
     fullRadioBtn[0].checked = true;
     noneRadioBtn[1].checked = true;
@@ -375,168 +365,38 @@ function createSpecialPizza1() {
     fullRadioBtn[8].checked = true;
     noneRadioBtn[9].checked = true;
     fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    normalRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    normalRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-
-    // console.log(document.getElementById(`topping_amount_${data.toppings[2].name}`));
-    // console.log(document.getElementsByName(`topping_amount_${data.toppings[2].name}`)[checked]);
-
 }
 
-function createSpecialPizza2() {
-    noneRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    noneRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    noneRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    noneRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    noneRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    noneRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    noneRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    noneRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    noneRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-    noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    normalRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    normalRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
+function createSpecialPizza(prebuiltObject) {
+    let prebuiltPizza = prebuiltObject;
+    resetAllToppings();
+    let counter = 0;
+    Array.from(sizeList).forEach(function(element){
+        if(element.value == prebuiltPizza.size){
+            element.checked = true;
+        }
+    })
+    data.toppings.forEach(function(listTopping){
+        if(prebuiltPizza.toppings.includes(listTopping.name)){
+            normalRadioBtn[counter].checked = true;
+            fullRadioBtn[counter].checked = true;
+        }
+        counter++;
+    })
 }
 
-function createSpecialPizza3() {
-    noneRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    noneRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    noneRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    noneRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    noneRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    noneRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    noneRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    noneRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    noneRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-    noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    normalRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    normalRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    normalRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
+const setCanvasSize = () => {
+    if(window.innerWidth <= 700){
+        canvas.width = (document.getElementById("image_holder").offsetWidth * 2) - 5;
+        canvas.height = canvas.width;
+        imageHeight = canvas.height;
+        imageWidth = canvas.width;
+    }
+    else{
+        canvas.width = imageWidth = 624;
+        canvas.height = imageHeight = 620;
+    }
 }
 
-function createSpecialPizza4() {
-    noneRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    noneRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    noneRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    noneRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    noneRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    noneRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    noneRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    noneRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    noneRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-    noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    normalRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    normalRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    normalRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    normalRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-}
-
-function createSpecialPizza5() {
-    noneRadioBtn[0].checked = true;
-    fullRadioBtn[0].checked = true;
-    noneRadioBtn[1].checked = true;
-    fullRadioBtn[1].checked = true;
-    noneRadioBtn[2].checked = true;
-    fullRadioBtn[2].checked = true;
-    noneRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    noneRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    noneRadioBtn[5].checked = true;
-    fullRadioBtn[5].checked = true;
-    noneRadioBtn[6].checked = true;
-    fullRadioBtn[6].checked = true;
-    noneRadioBtn[7].checked = true;
-    fullRadioBtn[7].checked = true;
-    noneRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-    noneRadioBtn[9].checked = true;
-    fullRadioBtn[9].checked = true;
-
-    normalRadioBtn[3].checked = true;
-    fullRadioBtn[3].checked = true;
-    normalRadioBtn[4].checked = true;
-    fullRadioBtn[4].checked = true;
-    normalRadioBtn[8].checked = true;
-    fullRadioBtn[8].checked = true;
-}
-
-
-
-// if (document.getElementById(`topping_amount_${data.toppings[0].name}`).value == 'Extra') {
-//     if(document.getElementById(`pizza_portion_${data.toppings[0].name}`).value == 'left') {
-//         anchovy_left = true;
-//         anchovy_right = false;
-//         console.log('It went into left')
-//     }
-//     if(document.getElementById(`pizza_portion_${data.toppings[0].name}`).value == 'right') {
-//         anchovy_left = false;
-//         anchovy_right = true;
-//         console.log('It went into right')
-//     }
-//     if(document.getElementById(`pizza_portion_${data.toppings[0].name}`).value == 'full') {
-//         anchovy_left = true;
-//         anchovy_right = true;
-//         console.log('It went into full')
-//     }
-// }
-
-// topping_amount_${element.id}
-// pizza_portion_${element.id}
+window.addEventListener("resize", setCanvasSize)
+window.addEventListener("onload", setCanvasSize)

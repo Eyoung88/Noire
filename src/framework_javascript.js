@@ -3,7 +3,27 @@ import { data } from './data';
 export const pizza = `
 <div id="pizzaTitleLab">Noire Pizza</div>
 <div id="special_pizzas"></div>
-<div">
+<div id="pizza_size">
+            <ul class="size_options_list">
+                <li>
+                    <label>X-Large: $20.00
+                    <input class="size_radio" type="radio" name="pizza_size" value="x-large" />
+                </li>
+                <li>
+                    <label>Large: $15.00
+                    <input class="size_radio" type="radio" name="pizza_size" value="large" checked />
+                </li>
+                <li>
+                    <label>Medium: $12.00
+                    <input class="size_radio" type="radio" name="pizza_size" value="medium" />
+                </li>
+                <li>
+                    <label>Small: $8.00
+                    <input class="size_radio" type="radio" name="pizza_size" value="small" />
+                </li>
+            </ul>
+        </div>
+<div>
     <div id="toppings_row">
         <div id="${data.toppings[0].name}" class="toppings"></div>
         <div id="${data.toppings[1].name}" class="toppings"></div>
@@ -16,29 +36,9 @@ export const pizza = `
         <div id="${data.toppings[8].name}" class="toppings"></div>
         <div id="${data.toppings[9].name}" class="toppings"></div>
     </div>
-    <div id="total">Your current price is $0.00</div>
+    <div id="total">Your current total is $0.00</div>
     <div id="image_holder">
         <canvas id="pizza_view"></canvas>
-        <div id="pizza_size">
-            <ul class="size_options_list">
-                <li>
-                    <label>X-Large
-                    <input class="size_radio" type="radio" name="pizza_size" value="x-large" />
-                </li>
-                <li>
-                    <label>Large
-                    <input class="size_radio" type="radio" name="pizza_size" value="large" checked />
-                </li>
-                <li>
-                    <label>Medium
-                    <input class="size_radio" type="radio" name="pizza_size" value="medium" />
-                </li>
-                <li>
-                    <label>Small
-                    <input class="size_radio" type="radio" name="pizza_size" value="small" />
-                </li>
-            </ul>
-        </div>
         <div id="specialImg">
             <img src='./images/special_offer.png'>
         </div>
