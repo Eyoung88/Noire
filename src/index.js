@@ -387,7 +387,7 @@ function createSpecialPizza(prebuiltObject) {
 
 const setCanvasSize = () => {
     if(window.innerWidth <= 700){
-        canvas.width = (document.getElementById("image_holder").offsetWidth * 2) - 5;
+        canvas.width = (document.getElementById("image_holder").offsetWidth);
         canvas.height = canvas.width;
         imageHeight = canvas.height;
         imageWidth = canvas.width;
