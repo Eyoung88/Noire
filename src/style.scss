@@ -249,6 +249,11 @@ html {
   background-color: brown;
 }
 
+#add_to_order:hover {
+  background-color: rgb(250, 60, 80);
+  cursor: pointer;
+}
+
 #pizza_view {
   top: 0;
   display: block;
