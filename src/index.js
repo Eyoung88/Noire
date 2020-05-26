@@ -36,7 +36,7 @@ const special_pizzas = document.getElementById("special_pizzas");
 special_pizzas.innerHTML = `
 <div id="special1" class="btn topping_font">The Italian</div>
 <div id="special2" class="btn topping_font">Spicy Italian</div>
-<div id="special3" class="btn topping_font">Vegatarian</div>
+<div id="special3" class="btn topping_font">Vegetarian</div>
 <div id="special4" class="btn topping_font">Meatzza</div>
 <div id="special5" class="btn topping_font">The Crime</div>
 `;
@@ -47,8 +47,8 @@ Array.from(toppingArray).forEach(function (element) {
     <div class="grid-container">
         <div class="grid-item"><img src="./images/single_${data.toppings[counter].file_prefix}.png" width="80" height="60"></div>
         <div class="grid-item topping_font">${data.toppings[counter].name}</div>
-        <div class="grid-item"></div> 
-        <div class="grid-item"></div>
+        <div class="grid-item blank-grid"></div> 
+        <div class="grid-item blank-grid"></div>
         <div class="grid-item">
             <div class="topping_amount">
                 <label class="container">

@@ -21,7 +21,7 @@ html {
   width: 90%;
   margin: auto;
   background-color: #aaa;
-  border: solid #000;
+  // border: solid #000;
 }
 
 #toppings_row {
@@ -33,12 +33,12 @@ html {
 #special_pizzas {
   display: flex;
   flex-direction: row;
-  border: solid #000;
+  // border: solid #000;
   height: 100px;
 }
 
 .toppings {
-  border: solid 1px #000;
+  // border: solid 1px #000;
   display: flex;
 }
 
@@ -100,7 +100,7 @@ html {
 
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  // border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 10px;
   text-align: center;
   width: auto;
@@ -169,7 +169,7 @@ html {
 #total {
   font-size: 48px;
   display: flex;
-  border: solid 1px #000;
+  // border: solid 1px #000;
   justify-content: center;
   padding: 20px;
 }
@@ -305,5 +305,17 @@ html {
   #add_to_order{
     width: 80%;
     margin-left: 90px;
+  }
+
+  .grid-container{
+    padding-left: 20px;
+  }
+
+  .grid-item{
+    width: 80%;
+  }
+
+  .blank-grid{
+    display: none;
   }
 }
