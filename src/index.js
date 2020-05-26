@@ -377,7 +377,7 @@ function createSpecialPizza(prebuiltObject) {
         }
     })
     data.toppings.forEach(function(listTopping){
-        if(prebuiltPizza.toppings.includes(listTopping.name)){
+        if(prebuiltPizza.toppings.includes(listTopping.file_prefix)){
             normalRadioBtn[counter].checked = true;
             fullRadioBtn[counter].checked = true;
         }
