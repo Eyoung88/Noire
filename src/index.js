@@ -11,7 +11,7 @@ const pizza_image = document.createElement('IMG');
 pizza_image.setAttribute('src', './images/pizza_canvas.png');
 // pizza_image.setAttribute('class', "toppingImg");
 // pizza_image.classList.add("toppingImg");
-pizza_image.className = "toppingImg";
+// pizza_image.className = "toppingImg";
 
 let topping = [];
 
@@ -23,13 +23,13 @@ const topping_loader = () => {
         topping[idx].left.setAttribute('src', `./images/${topping1.file_prefix}_left.png`);
         // topping[idx].left.setAttribute('class', "toppingImg");
         // topping[idx].left.classList.add("toppingImg");
-        topping[idx].left.className = "toppingImg";
+        // topping[idx].left.className = "toppingImg";
 
         topping[idx].right = document.createElement('IMG');
         topping[idx].right.setAttribute('src', `./images/${topping1.file_prefix}_right.png`);
         // topping[idx].right.setAttribute('class', "toppingImg");
         // topping[idx].right.classList.add("toppingImg");
-        topping[idx].right.className = "toppingImg";
+        // topping[idx].right.className = "toppingImg";
     });
 };
 topping_loader();
@@ -242,87 +242,90 @@ const leftRadioBtn = document.getElementsByClassName("left_radio");
 const fullRadioBtn = document.getElementsByClassName("full_radio");
 const rightRadioBtn = document.getElementsByClassName("right_radio");
 
+var imageWidth = 624;
+var imageHeight = 620;
+
 const loop = () => {
     ctx.clearRect(0, 0, 0, 0);
-    ctx.drawImage(pizza_image, 0, 0);
+    ctx.drawImage(pizza_image, 0, 0, imageWidth, imageHeight);
     if (anchovy_display) {
         if (anchovy_left) {
-            ctx.drawImage(topping[0].left, 0, 0);
+            ctx.drawImage(topping[0].left, 0, 0, imageWidth, imageHeight);
         }
         if (anchovy_right) {
-            ctx.drawImage(topping[0].right, 0, 0);
+            ctx.drawImage(topping[0].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (bacon_display) {
         if (bacon_left) {
-            ctx.drawImage(topping[1].left, 0, 0);
+            ctx.drawImage(topping[1].left, 0, 0, imageWidth, imageHeight);
         }
         if (bacon_right) {
-            ctx.drawImage(topping[1].right, 0, 0);
+            ctx.drawImage(topping[1].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (bell_peppers_display) {
         if (bell_peppers_left) {
-            ctx.drawImage(topping[2].left, 0, 0);
+            ctx.drawImage(topping[2].left, 0, 0, imageWidth, imageHeight);
         }
         if (bell_peppers_right) {
-            ctx.drawImage(topping[2].right, 0, 0);
+            ctx.drawImage(topping[2].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (cheese_display) {
         if (cheese_left) {
-            ctx.drawImage(topping[3].left, 0, 0);
+            ctx.drawImage(topping[3].left, 0, 0, imageWidth, imageHeight);
         }
         if (cheese_right) {
-            ctx.drawImage(topping[3].right, 0, 0);
+            ctx.drawImage(topping[3].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (ham_display) {
         if (ham_left) {
-            ctx.drawImage(topping[4].left, 0, 0);
+            ctx.drawImage(topping[4].left, 0, 0, imageWidth, imageHeight);
         }
         if (ham_right) {
-            ctx.drawImage(topping[4].right, 0, 0);
+            ctx.drawImage(topping[4].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (jalepenos_display) {
         if (jalepenos_left) {
-            ctx.drawImage(topping[5].left, 0, 0);
+            ctx.drawImage(topping[5].left, 0, 0, imageWidth, imageHeight);
         }
         if (jalepenos_right) {
-            ctx.drawImage(topping[5].right, 0, 0);
+            ctx.drawImage(topping[5].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (olives_display) {
         if (olives_left) {
-            ctx.drawImage(topping[6].left, 0, 0);
+            ctx.drawImage(topping[6].left, 0, 0, imageWidth, imageHeight);
         }
         if (olives_right) {
-            ctx.drawImage(topping[6].right, 0, 0);
+            ctx.drawImage(topping[6].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (pepperoni_display) {
         if (pepperoni_left) {
-            ctx.drawImage(topping[7].left, 0, 0);
+            ctx.drawImage(topping[7].left, 0, 0, imageWidth, imageHeight);
         }
         if (pepperoni_right) {
-            ctx.drawImage(topping[7].right, 0, 0);
+            ctx.drawImage(topping[7].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (pineapple_display) {
         if (pineapple_left) {
-            ctx.drawImage(topping[8].left, 0, 0);
+            ctx.drawImage(topping[8].left, 0, 0, imageWidth, imageHeight);
         }
         if (pineapple_right) {
-            ctx.drawImage(topping[8].right, 0, 0);
+            ctx.drawImage(topping[8].right, 0, 0, imageWidth, imageHeight);
         }
     }
     if (sausage_display) {
         if (sausage_left) {
-            ctx.drawImage(topping[9].left, 0, 0);
+            ctx.drawImage(topping[9].left, 0, 0, imageWidth, imageHeight);
         }
         if (sausage_right) {
-            ctx.drawImage(topping[9].right, 0, 0);
+            ctx.drawImage(topping[9].right, 0, 0, imageWidth, imageHeight);
         }
     }
 
@@ -551,24 +554,16 @@ function createSpecialPizza5() {
 // pizza_portion_${element.id}
 
 const setCanvasSize = () => {
-    var toppingImages = document.getElementsByClassName("toppingImg");
-    console.log(toppingImages);
-    console.log(Array.from(toppingImages));
-    console.log(window.innerWidth);
-    var ratio = canvas.style.height/canvas.style.width;
-    canvas.width = window.innerWidth;
-    canvas.height = canvas.width * ratio;
-    Array.from(toppingImages).forEach(function(image){
-        console.log(image)
-        image.style.width = 400;
-        image.style.height = image.style.width * ratio;
-    })
-    console.log("mobile");
-    // if(window.innerWidth <= 700){
-    // }
-    // else{
-    //     console.log("desktop")
-    // }
+    if(window.innerWidth <= 700){
+        canvas.width = (document.getElementById("image_holder").offsetWidth * 2) - 5;
+        canvas.height = canvas.width;
+        imageHeight = canvas.height;
+        imageWidth = canvas.width;
+    }
+    else{
+        canvas.width = imageWidth = 624;
+        canvas.height = imageHeight = 620;
+    }
 }
 
 window.addEventListener("resize", setCanvasSize)
