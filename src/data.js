@@ -19,54 +19,44 @@ export let data = {
     ],
     toppings: [
         {
-            "name": "anchovy",
-            "file_prefix": "anchovy",
-            "display_name": "Anchovies"
+            "name": "Anchovy",
+            "file_prefix": "anchovy"
         },
         {
-            "name": "bacon",
-            "file_prefix": "bacon",
-            "display_name": "Bacon"
+            "name": "Bacon",
+            "file_prefix": "bacon"
         },
         {
-            "name": "bell_peppers",
-            "file_prefix": "bell_peppers",
-            "display_name": "Bell Peppers"
+            "name": "Bell Peppers",
+            "file_prefix": "bell_peppers"
         },
         {
-            "name": "cheese",
-            "file_prefix": "cheese",
-            "display_name": "Cheese"
+            "name": "Cheese",
+            "file_prefix": "cheese"
         },
         {
-            "name": "ham",
-            "file_prefix": "ham",
-            "display_name": "Ham"
+            "name": "Ham",
+            "file_prefix": "ham"
         },
         {
-            "name": "jalepenos",
-            "file_prefix": "jalepenos",
-            "display_name": "Jalapenos"
+            "name": "Jalapenos",
+            "file_prefix": "jalepenos"
         },
         {
-            "name": "olives",
-            "file_prefix": "olives",
-            "display_name": "Olives"
+            "name": "Olives",
+            "file_prefix": "olives"
         },
         {
-            "name": "pepperoni",
-            "file_prefix": "pepperoni",
-            "display_name": "Pepperoni"
+            "name": "Pepperoni",
+            "file_prefix": "pepperoni"
         },
         {
-            "name": "pineapple",
-            "file_prefix": "pineapple",
-            "display_name": "Pineapple"
+            "name": "Pineapple",
+            "file_prefix": "pineapple"
         },
         {
-            "name": "sausage",
-            "file_prefix": "sausage",
-            "display_name": "Sausage"
+            "name": "Sausage",
+            "file_prefix": "sausage"
         }
     ],
     prebuilt1: [
